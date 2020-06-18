@@ -79,10 +79,10 @@ class App extends React.Component {
       
       return (
         <div className="app">
-          <MainPage></MainPage>
-          {/* <div className="container">
+          {/* <MainPage></MainPage> */}
+          <div className="container">
             <LoginForm />
-          </div> */}
+          </div>
         </div>
       );
     }
