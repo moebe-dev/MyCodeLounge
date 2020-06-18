@@ -17,9 +17,12 @@ const useStyles = makeStyles((theme) => ({
 export default function BasicButtonGroup() {
   const classes = useStyles();
 
+
+// button color needs to be fixed
+  
   return (
     <div className={classes.root}>
-      <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+      <ButtonGroup variant="contained" color="grey" aria-label="contained primary button group">
         <Button>One</Button>
         <Button>Two</Button>
         <Button>Three</Button>

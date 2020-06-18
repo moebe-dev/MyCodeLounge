@@ -12,7 +12,27 @@ export default function Switches() {
   };
 
   return (
-    <div>
+    <div style= {{display: 'flex', flexDirection: 'column'}}>
+      <div>
+      <Switch
+        checked={state.checkedA}
+        onChange={handleChange}
+        name="checkedA"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+      </div>
+      <Switch
+        checked={state.checkedA}
+        onChange={handleChange}
+        name="checkedA"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+      <Switch
+        checked={state.checkedA}
+        onChange={handleChange}
+        name="checkedA"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
       <Switch
         checked={state.checkedA}
         onChange={handleChange}

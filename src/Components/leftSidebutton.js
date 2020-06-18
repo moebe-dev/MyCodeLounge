@@ -1,7 +1,7 @@
 import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { green, purple } from '@material-ui/core/colors';
+import { green, purple, orange } from '@material-ui/core/colors';
 
 const BootstrapButton = withStyles({
   root: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: green,
+    primary: orange,
   },
 });
 
@@ -67,17 +67,17 @@ export default function CustomizedButtons() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div style= {{display: 'flex', flexDirection: 'column',justifyContent: 'space-between'}}>
       <ColorButton variant="contained" color="primary" className={classes.margin}>
-        Custom CSS
+        CSS
       </ColorButton>
       <ThemeProvider theme={theme}>
         <Button variant="contained" color="primary" className={classes.margin}>
-          Theme Provider
+          HTML
         </Button>
       </ThemeProvider>
-      <BootstrapButton variant="contained" color="primary" disableRipple className={classes.margin}>
-        Bootstrap
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+        JavaScript
       </BootstrapButton>
     </div>
   );

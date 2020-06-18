@@ -21,13 +21,13 @@ export default function Main() {
       </div>
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div>
           <LeftSideButton></LeftSideButton>
         </div>
-        <div style={{ display: "flex" , justifyContent: "center"}}>
+        <div>
             <Cards></Cards>
         </div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div>
           <FilterButton></FilterButton>
         </div>
       </div>
