@@ -4,6 +4,7 @@ import UserStore from "./stores/UserStore";
 import LoginForm from "./LoginForm";
 import SubmitButton from "./SubmitButton";
 import "./App.css";
+import MainPage from "./Pages/mainPage";
 
 class App extends React.Component {
   async componentDidMount() {
@@ -41,9 +42,9 @@ class App extends React.Component {
           "Content-Type": "application/json",
         },
       });
-
+      
       let result = await res.json();
-
+      
       if (result && result.success) {
         UserStore.isLoggedIn = false;
         UserStore.username = "";
@@ -52,7 +53,7 @@ class App extends React.Component {
       console.log(e);
     }
   }
-
+  
   render() {
     if (UserStore.loading) {
       return (
@@ -75,9 +76,10 @@ class App extends React.Component {
           </div>
         );
       }
-
+      
       return (
         <div className="app">
+          {/* <MainPage></MainPage> */}
           <div className="container">
             <LoginForm />
           </div>
