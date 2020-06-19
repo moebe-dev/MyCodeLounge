@@ -5,9 +5,13 @@ import LoginForm from "./LoginForm";
 import SubmitButton from "./SubmitButton";
 import "./App.css";
 import MainPage from "./Pages/mainPage";
+import API from "./utils/API";
 
 class App extends React.Component {
   async componentDidMount() {
+    let videos =  API.getYoutubeVideos();
+
+
     try {
       let res = await fetch("/isLoggedIn", {
         method: "post",
@@ -79,10 +83,10 @@ class App extends React.Component {
       
       return (
         <div className="app">
-          {/* <MainPage></MainPage> */}
-          <div className="container">
+          <MainPage></MainPage>
+          {/* <div className="container">
             <LoginForm />
-          </div>
+          </div> */}
         </div>
       );
     }

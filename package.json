@@ -3,24 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
+  "main": "server.js",
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
+    "mongoose": "^5.9.19",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-material-ui-carousel": "^1.6.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "node server.js",
+    "client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "concurrently \"nodemon --ignore 'src/*'\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": "react-app"
