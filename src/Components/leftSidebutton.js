@@ -1,7 +1,8 @@
 import React from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { green, purple, orange } from '@material-ui/core/colors';
+import { purple, orange } from '@material-ui/core/colors';
+
 
 const BootstrapButton = withStyles({
   root: {
@@ -79,6 +80,8 @@ export default function CustomizedButtons() {
       <BootstrapButton variant="contained" color="primary" className={classes.margin}>
         JavaScript
       </BootstrapButton>
+      
     </div>
   );
 }
+

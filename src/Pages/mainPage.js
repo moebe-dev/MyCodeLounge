@@ -6,6 +6,8 @@ import CarouseBanner from "../Components/carousel";
 import FilterButton from "../Components/filterButton";
 import LeftSideButton from "../Components/leftSidebutton";
 import Cards from "../Components/cards";
+import LoginButton from "../Components/LoginButton"
+
 export default function Main() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -17,6 +19,7 @@ export default function Main() {
       </div>
       {/* row 2 carousel */}
       <div>
+        <LoginButton />
         <CarouseBanner></CarouseBanner>
       </div>
       {/* row 3 left side buttons, cards, filters */}
