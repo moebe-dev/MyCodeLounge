@@ -5,6 +5,9 @@ export default function Switches() {
   const [state, setState] = React.useState({
     checkedA: true,
     checkedB: true,
+    checkedC: true,
+    checkedD: true,
+    checkedE: false,
   });
 
   const handleChange = (event) => {
@@ -13,7 +16,7 @@ export default function Switches() {
 
   return (
     <div style= {{display: 'flex', flexDirection: 'column'}}>
-      <div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>YouTube
       <Switch
         checked={state.checkedA}
         onChange={handleChange}
@@ -21,30 +24,38 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
       <Switch
-        checked={state.checkedA}
+        checked={state.checkedB}
         onChange={handleChange}
-        name="checkedA"
+        name="checkedB"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
+      </div>
+      <div>Google Books
       <Switch
-        checked={state.checkedA}
+        checked={state.checkedC}
         onChange={handleChange}
-        name="checkedA"
+        name="checkedC"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
+      </div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Udemy
       <Switch
-        checked={state.checkedA}
+        checked={state.checkedD}
         onChange={handleChange}
-        name="checkedA"
+        name="checkedD"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
+      </div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Pixabay
       <Switch
-        checked={state.checkedA}
+        checked={state.checkedE}
         onChange={handleChange}
-        name="checkedA"
+        name="checkedE"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
+      </div>
     </div>
   );
 }
