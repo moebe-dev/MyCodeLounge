@@ -23,7 +23,9 @@ export default function SvgIconsSize() {
 
   return (
     <div className={classes.root}>
-      <HomeIcon style={{ fontSize: 40 }} />
+      <HomeIcon style={{ fontSize: 40 }}/> 
+      <p style= {{ fontSize: 30, color:'#FF6347', }}><h2>My Code Lounge</h2></p>
+    
     </div>
   );
 }

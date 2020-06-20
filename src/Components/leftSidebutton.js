@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import { green, purple, orange } from '@material-ui/core/colors';
 import API from "../utils/API";
 
+
 const BootstrapButton = withStyles({
   root: {
+    borderRadius: '90px',
     boxShadow: 'none',
     textTransform: 'none',
     fontSize: 16,
     padding: '6px 12px',
     border: '1px solid',
     lineHeight: 1.5,
-    backgroundColor: '#0063cc',
-    borderColor: '#0063cc',
+    backgroundColor: '#E6E600',
+    borderColor: '#E6E600',
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -28,7 +29,7 @@ const BootstrapButton = withStyles({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      backgroundColor: '#0069d9',
+      backgroundColor: '#E6E600',
       borderColor: '#0062cc',
       boxShadow: 'none',
     },
@@ -43,15 +44,15 @@ const BootstrapButton = withStyles({
   },
 })(Button);
 
-const ColorButton = withStyles((theme) => ({
-  root: {
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    '&:hover': {
-      backgroundColor: purple[700],
-    },
-  },
-}))(Button);
+// const ColorButton = withStyles((theme) => ({
+//   root: {
+//     color: theme.palette.getContrastText(purple[500]),
+//     backgroundColor: purple[500],
+//     '&:hover': {
+//       backgroundColor: purple[700],
+//     },
+//   },
+// }))(Button);
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -59,11 +60,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const theme = createMuiTheme({
-  palette: {
-    primary: orange,
-  },
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: orange,
+//   },
+// });
 
 
 export default function CustomizedButtons() {
@@ -71,16 +72,24 @@ export default function CustomizedButtons() {
 
   return (
     <div style= {{display: 'flex', flexDirection: 'column',justifyContent: 'space-between'}}>
-      <ColorButton variant="contained" color="primary" className={classes.margin}>
-        CSS
+      {/* <ColorButton variant="contained" color="primary" className={classes.margin}>
+      CSS
+      <ion-icon name="logo-css3"></ion-icon>
       </ColorButton>
       <ThemeProvider theme={theme}>
         <Button variant="contained" color="primary" className={classes.margin}>
-          HTML
+        HTML
+        <ion-icon name="logo-html5"></ion-icon>
         </Button>
-      </ThemeProvider>
+      </ThemeProvider> */}
+      <BootstrapButton  id= "javascriptbtn" variant="contained" color="primary" className={classes.margin}>
+      JavaScript
+      <ion-icon name="logo-javascript"></ion-icon>
+      </BootstrapButton>
+
       <BootstrapButton variant="contained" color="primary" className={classes.margin}>
-        JavaScript
+      HTML
+      <ion-icon name="logo-html5"></ion-icon>
       </BootstrapButton>
       
     </div>

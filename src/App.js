@@ -17,6 +17,7 @@ function App () {
   if(loading) {
     return <h1>DOG</h1>
   }
+  
   return (
     <div className="App">
       <Router history={history}>
