@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { purple, orange } from '@material-ui/core/colors';
 
+import { green, purple, orange } from '@material-ui/core/colors';
+import API from "../utils/API";
 
 const BootstrapButton = withStyles({
   root: {
@@ -64,6 +65,7 @@ const theme = createMuiTheme({
   },
 });
 
+
 export default function CustomizedButtons() {
   const classes = useStyles();
 
@@ -85,3 +87,18 @@ export default function CustomizedButtons() {
   );
 }
 
+
+// class Button extends Component {
+//   componentDidMount() {
+//     API.getW3Refrence("css")
+//        .then(res => {
+//          this.setState({references: res})
+//        });
+//   }
+
+//   render() { 
+//     return ( 
+//       this.state.references.map((key) => <Button reference={key}></Button>)
+//      );
+//   }
+// }
