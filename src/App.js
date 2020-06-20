@@ -20,8 +20,8 @@ class App extends React.Component {
     //    .then(res => console.log(res));
 
     // get 5/30 random google books on "full stack development"
-    API.getGoogleBooks()
-       .then(res => console.log(res));
+    // API.getGoogleBooks()
+    //    .then(res => console.log(res));
 
     // !!!!!   cant get working b/c cant sign up for API !!!!!!! //
     // get random courses on "full stack development"
