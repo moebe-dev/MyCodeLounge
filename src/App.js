@@ -7,6 +7,8 @@ import Profile from "./Components/Profile";
 // import Loading from "./Components/Loading"
 import PrivateRoute from "./Components/PrivateRoute";
 import history from "./utils/history";
+import Main from "./Pages/mainPage";
+// import NavBar from "./Components/NavBar/NavBar"
 
 
 function App () {
@@ -19,11 +21,13 @@ function App () {
     <div className="App">
       <Router history={history}>
         <header>
-          <LoginButton />
+    {/* <NavBar /> */}
+     <LoginButton />
+          
         </header>
         <Switch>
-          <Route path="/" exact />
-          <PrivateRoute path="/Profile" component={Profile} />
+          <Route path="/" exact component= {MainPage} />
+          <PrivateRoute path="/mainPage" component = { Main()}/>
           <MainPage />
         </Switch>
       </Router>

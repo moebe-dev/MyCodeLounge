@@ -13,6 +13,7 @@ const LoginButton = () => {
       )}
 
       {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+      
     </div>
   );
 };

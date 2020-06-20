@@ -7,6 +7,7 @@ import FilterButton from "../Components/filterButton";
 import LeftSideButton from "../Components/leftSidebutton";
 import Cards from "../Components/cards";
 import LoginButton from "../Components/LoginButton"
+import { useAuth0 } from "../react-auth0-spa";
 
 export default function Main() {
   return (
@@ -19,7 +20,7 @@ export default function Main() {
       </div>
       {/* row 2 carousel */}
       <div>
-        <LoginButton />
+        {/* <LoginButton /> */}
         <CarouseBanner></CarouseBanner>
       </div>
       {/* row 3 left side buttons, cards, filters */}
