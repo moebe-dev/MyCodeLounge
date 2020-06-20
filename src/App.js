@@ -1,92 +1,39 @@
 import React from "react";
-import { observer } from "mobx-react";
-import UserStore from "./stores/UserStore";
-import LoginForm from "./LoginForm";
-import SubmitButton from "./SubmitButton";
-import "./App.css";
+import { Router, Route, Switch } from "react-router-dom";
+import LoginButton from './Components/LoginButton';
 import MainPage from "./Pages/mainPage";
+import { useAuth0 } from "./react-auth0-spa";
+import Profile from "./Components/Profile";
+// import Loading from "./Components/Loading"
+import PrivateRoute from "./Components/PrivateRoute";
+import history from "./utils/history";
+import Main from "./Pages/mainPage";
+// import NavBar from "./Components/NavBar/NavBar"
 
-class App extends React.Component {
-  async componentDidMount() {
-    try {
-      let res = await fetch("/isLoggedIn", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
 
-      let result = await res.json();
+function App () {
+  const { loading } = useAuth0();
 
-      if (result && result.success) {
-        UserStore.loading = false;
-        UserStore.isLoggedIn = true;
-        UserStore.username = result.username;
-      } else {
-        UserStore.loading = false;
-        UserStore.isLoggedIn = false;
-      }
-    } catch (e) {
-      UserStore.loading = false;
-      UserStore.isLoggedIn = false;
-    }
-  }
-
-  async doLogout() {
-    try {
-      let res = await fetch("/logout", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-      
-      let result = await res.json();
-      
-      if (result && result.success) {
-        UserStore.isLoggedIn = false;
-        UserStore.username = "";
-      }
-    } catch (e) {
-      console.log(e);
-    }
+  if(loading) {
+    return <h1>DOG</h1>
   }
   
-  render() {
-    if (UserStore.loading) {
-      return (
-        <div className="app">
-          <div className="container">Loading, Please Wait...</div>
-        </div>
-      );
-    } else {
-      if (UserStore.isLoggedIn) {
-        return (
-          <div className="app">
-            <div className="container">
-              Welcome {UserStore.username}
-              <SubmitButton
-                text={"Log out"}
-                disable={false}
-                onClick={() => this.doLogout()}
-              />
-            </div>
-          </div>
-        );
-      }
-      
-      return (
-        <div className="app">
-          <MainPage></MainPage>
-          {/* <div className="container">
-            <LoginForm />
-          </div> */}
-        </div>
-      );
-    }
-  }
+  return (
+    <div className="App">
+      <Router history={history}>
+        <header>
+    {/* <NavBar /> */}
+     <LoginButton />
+          
+        </header>
+        <Switch>
+          <Route path="/" exact component= {MainPage} />
+          <PrivateRoute path="/mainPage" component = { Main()}/>
+          <MainPage />
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
-export default observer(App);
+export default App;
