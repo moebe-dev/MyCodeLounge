@@ -6,10 +6,33 @@ import SubmitButton from "./SubmitButton";
 import "./App.css";
 import MainPage from "./Pages/mainPage";
 import API from "./utils/API";
+import { CircularProgress } from "@material-ui/core";
 
 class App extends React.Component {
   async componentDidMount() {
-    let videos =  API.getYoutubeVideos();
+    // get 5/30 random youtube videos on "full stack development"
+    // API.getYoutubeVideos()
+    //    .then(res => console.log(res));
+
+    // get all links for howtos on w3 webstie
+    // works for ["html", "css", "js", "sql", "python", "php", "howto", "w3css", "jquery", "java", "react", "nodejs", "angular", "cpp", "cs", "sass", "xml"]
+    // API.getW3Reference("js")
+    //    .then(res => console.log(res));
+
+    // get 5/30 random google books on "full stack development"
+    API.getGoogleBooks()
+       .then(res => console.log(res));
+
+    // !!!!!   cant get working b/c cant sign up for API !!!!!!! //
+    // get random courses on "full stack development"
+    // API.getUdemyCourses()
+    //    .then(res => console.log(res));
+
+    // API.searchStackOverFlow("center image css")
+    //    .then(res => console.log(res));
+
+    // API.saveBookToUser("dummy info")
+    //    .then(res => console.log(res));
 
 
     try {

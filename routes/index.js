@@ -7,7 +7,6 @@ router.use("/api", apiRoutes);
 
 // hit index page if no api routes called
 router.use(function(req, res) {
-    console.log("landing");
     res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
