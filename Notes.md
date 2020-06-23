@@ -1,26 +1,4 @@
-### !Delete Before Production!
+## Image Search
 
-## Notes For Login-System - Muhammad Ali
-
-- Look At LoginForm.js, Lines 72 - 96 For Text Change!
-- Look At App.css For Login Styles!
-
-
-
-
-
-
-
-
-
-
-
-# Tech Used:
-* HTML5
-* CSS3
-* Javascript ES6
-* Express.js
-* React.js
-* NPM Package - mobx
-* MySQL-DB
-* API Calls
+## API KEY: 15625916-14b526d616a67672a22fa1d03
+## Put This Key In src/components/search/Search.js
