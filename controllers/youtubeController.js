@@ -23,6 +23,7 @@ module.exports = {
             videos.splice(randomIndex, 1);
         }
         res.json(results);
-      });    
+      })
+      .catch(err => console.log(err));    
   },
 };
