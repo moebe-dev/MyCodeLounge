@@ -5,11 +5,13 @@ import BasicButtonGroup from "../Components/tRButtons";
 import CarouseBanner from "../Components/carousel";
 import FilterButton from "../Components/filterButton";
 import LeftSideButton from "../Components/leftSidebutton";
-import Cards from "../Components/cards";
+import Card from "../Components/cards";
 import LoginButton from "../Components/LoginButton"
 import { useAuth0 } from "../react-auth0-spa";
+import { PropTypes } from "mobx-react";
 
-export default function Main() {
+export default function Main(props) {
+  console.log(props);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {/* row 1 */}
@@ -28,8 +30,14 @@ export default function Main() {
         <div>
           <LeftSideButton></LeftSideButton>
         </div>
-        <div>
-            <Cards></Cards>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+            {props.videos.length && props.videos.map(video=>(
+            <Card 
+              title= {video.title} 
+              link= {video.link} 
+              image= {video.image} 
+              description= {video.description}>
+            </Card>))}
         </div>
         <div>
           <FilterButton></FilterButton>
