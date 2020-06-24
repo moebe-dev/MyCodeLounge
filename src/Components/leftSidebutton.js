@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-// import { green, purple, orange } from '@material-ui/core/colors';
+import { green, purple, orange } from '@material-ui/core/colors';
+import API from "../utils/API";
+
 
 const BootstrapButton = withStyles({
   root: {
@@ -64,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
 //   },
 // });
 
+
 export default function CustomizedButtons() {
   const classes = useStyles();
 
@@ -88,6 +91,43 @@ export default function CustomizedButtons() {
       HTML
       <ion-icon name="logo-html5"></ion-icon>
       </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      CSS
+      <ion-icon name="logo-css3"></ion-icon>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      JQuery
+      <i class="devicon-jquery-plain"></i>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      React
+      <ion-icon name="logo-react"></ion-icon>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      Node.js
+      <ion-icon name="logo-nodejs"></ion-icon>
+      </BootstrapButton>
+      
     </div>
   );
 }
+
+
+// class Button extends Component {
+//   componentDidMount() {
+//     API.getW3Refrence("css")
+//        .then(res => {
+//          this.setState({references: res})
+//        });
+//   }
+
+//   render() { 
+//     return ( 
+//       this.state.references.map((key) => <Button reference={key}></Button>)
+//      );
+//   }
+// }

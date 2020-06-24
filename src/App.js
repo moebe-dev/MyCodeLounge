@@ -1,92 +1,58 @@
-import React from "react";
-import { observer } from "mobx-react";
-import UserStore from "./stores/UserStore";
-import LoginForm from "./LoginForm";
-import SubmitButton from "./SubmitButton";
-import "./App.css";
+import React, { Component, useEffect, useState } from 'react';
+import { Router, Route, Switch } from "react-router-dom";
+import LoginButton from './Components/LoginButton';
 import MainPage from "./Pages/mainPage";
+import { useAuth0 } from "./react-auth0-spa";
+// import Profile from "./Components/Profile";
+// import Loading from "./Components/Loading"
+import PrivateRoute from "./Components/PrivateRoute";
+import history from "./utils/history";
+// import NavBar from "./Components/NavBar/NavBar"
+import API from "./utils/API";
 
-class App extends React.Component {
-  async componentDidMount() {
-    try {
-      let res = await fetch("/isLoggedIn", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
 
-      let result = await res.json();
+function App () {
+  const [videos, setVideos] = useState([]);  // React state when using fuctions instead of classes
+  const { loading, user, isAuthenticated } = useAuth0();
 
-      if (result && result.success) {
-        UserStore.loading = false;
-        UserStore.isLoggedIn = true;
-        UserStore.username = result.username;
-      } else {
-        UserStore.loading = false;
-        UserStore.isLoggedIn = false;
-      }
-    } catch (e) {
-      UserStore.loading = false;
-      UserStore.isLoggedIn = false;
-    }
+  // this is similar method to componentDidMount for classes
+  useEffect(() => {
+    API.getYoutubeVideos()
+     .then(res => {
+       setVideos([...res.data])
+     })
+     .catch(err => console.log(err));
+     
+  }, []);
+
+  if(loading) {
+    return <h1>DOG</h1>
   }
+  if(!isAuthenticated){
+    return(
+    <Router history={history}>
+    <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>)
+    </Router>
+    )}
 
-  async doLogout() {
-    try {
-      let res = await fetch("/logout", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-      
-      let result = await res.json();
-      
-      if (result && result.success) {
-        UserStore.isLoggedIn = false;
-        UserStore.username = "";
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  
-  render() {
-    if (UserStore.loading) {
-      return (
-        <div className="app">
-          <div className="container">Loading, Please Wait...</div>
-        </div>
-      );
-    } else {
-      if (UserStore.isLoggedIn) {
-        return (
-          <div className="app">
-            <div className="container">
-              Welcome {UserStore.username}
-              <SubmitButton
-                text={"Log out"}
-                disable={false}
-                onClick={() => this.doLogout()}
-              />
-            </div>
-          </div>
-        );
-      }
-      
-      return (
-        <div className="app">
-          <MainPage></MainPage>
-          {/* <div className="container">
-            <LoginForm />
-          </div> */}
-        </div>
-      );
-    }
-  }
+  console.log(videos)
+  return (
+    <div className="App">
+      <Router history={history}>
+        <header>
+    {/* <NavBar /> */}
+     <LoginButton />
+            
+          <p>{user ? <p>{user.email}</p> : <div></div>}</p>   
+        </header>
+        <Switch>
+          <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
+          <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
+          <MainPage />
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
-export default observer(App);
+export default App;
