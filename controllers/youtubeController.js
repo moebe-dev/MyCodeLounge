@@ -12,9 +12,7 @@ module.exports = {
       .then((response) => {
         let videos = response.data.items;
         let results = [];
-
-        console.log(videos);
-
+        
         for (let x = 0 ; x <= 4 ; x++ ) {  // get 5 random videos from 30 total
             let randomIndex = Math.floor(Math.random() * videos.length); 
             results.push({

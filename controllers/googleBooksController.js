@@ -14,6 +14,7 @@ module.exports = {
       for (let x = 0; x <= 4; x++) {
         let randomIndex = Math.floor(Math.random() * books.length);
         const { title, description, infoLink } = books[randomIndex].volumeInfo;
+        // seems like a lot of books dont have imageLinks.thumbnail
         const image = books[randomIndex].volumeInfo.imageLinks ? books[randomIndex].volumeInfo.imageLinks.thumbnail : false;
 
         results.push({
