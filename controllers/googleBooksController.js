@@ -1,4 +1,3 @@
-const db = require("../models");
 const axios = require("axios");
 
 module.exports = {
@@ -27,10 +26,5 @@ module.exports = {
       }
       res.json(results);
     });
-  },
-
-  saveBookToUsers: function (req, res) {
-    // db.User.create book under user name here
-    res.json("saving book");
   },
 };

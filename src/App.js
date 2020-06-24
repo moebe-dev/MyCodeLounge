@@ -15,15 +15,15 @@ function App () {
   const [videos, setVideos] = useState([]);  // React state when using fuctions instead of classes
   const { loading, user, isAuthenticated } = useAuth0();
 
-  // this is similar method to componentDidMount for classes
-  // useEffect(() => {
-  //   API.getYoutubeVideos()
-  //    .then(res => {
-  //      setVideos([...res.data])
-  //    })
-  //    .catch(err => console.log(err));
-     
-  // }, []);
+    // this is similar method to componentDidMount for classes
+    useEffect(() => {
+      API.getYoutubeVideos()
+       .then(res => {
+         setVideos([...res.data])
+       })
+       .catch(err => console.log(err));
+       
+    }, []);
 
   if(loading) {
     return <h1>DOG</h1>
