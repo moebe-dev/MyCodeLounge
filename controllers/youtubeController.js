@@ -4,9 +4,10 @@ module.exports = {
   // find all books
   getVideos: function (req, res) {
     console.log("inside getVideos");
+    const searchTopic = req.query.topic ? req.query.topic.replace(/\s/, "%20") : "full%20stack%20develoment";
     axios
       .get(
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=full%20stack%20developer&type=video&key=AIzaSyCigK945eyJAItwigHVvdihdi4x9NcRv4k"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=" + searchTopic + "&type=video&key=AIzaSyCigK945eyJAItwigHVvdihdi4x9NcRv4k"
       )
       .then((response) => {
         let videos = response.data.items;

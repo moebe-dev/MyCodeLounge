@@ -1,26 +1,29 @@
 import axios from "axios";
 
 export default {
-    getYoutubeVideos: function() {
-        return axios.get("/api/youtube/getvideos");
+    getYoutubeVideos: function(topic=null) {
+        return axios.get("/api/youtube/getvideos", {params: { topic: topic }});
     },
 
     getW3Reference: function(topic) {
-        return axios.get("/api/w3schools/" + topic);
+        if (topic) return axios.get("/api/w3schools/" + topic);
+        else throw Error("W3 Schools search reference must be provided")
     },
 
-    getGoogleBooks: function(topic) {
-        return axios.get("/api/googlebooks/getbooks");
+    getGoogleBooks: function(topic=null) {
+        return axios.get("/api/googlebooks/getbooks", {params: { topic: topic }});
     },
 
-    getUdemyCourses: function() {
-        return axios.get("/api/udemy/getcourses");
+    getUdemyCourses: function(topic=null) {
+        return axios.get("/api/udemy/getcourses", {params: { topic: topic }});
     },
 
     searchStackOverFlow: function(question) {
-        return axios.get("/api/stackoverflow/ask", {params: { question: question }});
+        if (question) return axios.get("/api/stackoverflow/ask", {params: { question: question }});
+        else throw Error("Question must be provided to submit to Stack Overflow API");
     },
 
+    // need to implement
     saveBookToUser: function(data) {
         return axios.post("/api/googlebooks/savebook");
     }
