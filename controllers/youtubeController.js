@@ -21,7 +21,7 @@ module.exports = {
                 title: videos[randomIndex].snippet.title,
                 description: videos[randomIndex].snippet.description,
                 image: videos[randomIndex].snippet.thumbnails.medium.url,
-                link: "https://www.youtube.com/watch?v=" + videos[randomIndex].id.videoId
+                link: "https://www.youtube.com/embed/" + videos[randomIndex].id.videoId
             });
             videos.splice(randomIndex, 1);
         }
