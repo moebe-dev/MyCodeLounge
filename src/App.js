@@ -16,14 +16,14 @@ function App () {
   const { loading, user, isAuthenticated } = useAuth0();
 
   // this is similar method to componentDidMount for classes
-  useEffect(() => {
-    API.getYoutubeVideos()
-     .then(res => {
-       setVideos([...res.data])
-     })
-     .catch(err => console.log(err));
+  // useEffect(() => {
+  //   API.getYoutubeVideos()
+  //    .then(res => {
+  //      setVideos([...res.data])
+  //    })
+  //    .catch(err => console.log(err));
      
-  }, []);
+  // }, []);
 
   if(loading) {
     return <h1>DOG</h1>
