@@ -8,6 +8,7 @@ import Profile from "./Components/Profile";
 import PrivateRoute from "./Components/PrivateRoute";
 import history from "./utils/history";
 import Main from "./Pages/mainPage";
+import Intro from "./Pages/IntroPage"
 // import NavBar from "./Components/NavBar/NavBar"
 
 
@@ -22,14 +23,12 @@ function App () {
     <div className="App">
       <Router history={history}>
         <header>
-    {/* <NavBar /> */}
-     <LoginButton />
-          
+
         </header>
         <Switch>
-          <Route path="/" exact component= {MainPage} />
+          <Route path="/" exact component= {Intro} />
           <PrivateRoute path="/mainPage" component = { Main()}/>
-          <MainPage />
+          <Intro />
         </Switch>
       </Router>
     </div>
