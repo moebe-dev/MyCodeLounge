@@ -5,7 +5,6 @@ module.exports = {
   // find all books
   saveItem: function (req, res) {
       console.log("saving item to user");
-      console.log(req.body);
       
       // $push is not friendly when the key is a variable - this is the workaround
       var query = {};
@@ -34,7 +33,4 @@ module.exports = {
       .then(dbItems => res.json(dbItems))
       .catch(err => console.log(err));
   }
-  //
-//   findItemsByType:
-
 };

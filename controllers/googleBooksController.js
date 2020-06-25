@@ -25,6 +25,7 @@ module.exports = {
         books.splice(randomIndex, 1);
       }
       res.json(results);
-    });
+    })
+    .catch(err => console.log(err));
   },
 };

@@ -2,7 +2,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 module.exports = {
-  // find all books
+  // find all w3 references by type
   getTopics: function (req, res) {
     console.log("inside w3 schools");
     const topic = req.params.topic;
@@ -29,6 +29,7 @@ module.exports = {
                 }
             });
             res.json(results);
-        });
+        })
+        .catch(err => console.log(err));
   },
 };

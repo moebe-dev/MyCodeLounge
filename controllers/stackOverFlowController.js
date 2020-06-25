@@ -1,6 +1,4 @@
-// const db = require("../models");
 const axios = require("axios");
-const { query } = require("express");
 
 module.exports = {
   // find all books
@@ -21,6 +19,7 @@ module.exports = {
         });
       }
       res.json(results);
-    });
+    })
+    .catch(err => console.log(err));
   },
 };

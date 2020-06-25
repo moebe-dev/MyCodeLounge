@@ -32,7 +32,12 @@ export default {
     },
 
     getUdemyCourses: function(topic=null) {
-        // WIP - source return similar to youtube/google books
+        // return 5 udemy courses with title, link, description, image and price
+        // if no topic provided, will default to "full stack development"
+
+        // USAGE:
+            // API.getUdemyCourses().then(res => setCourses([...res.data]))
+            // API.getUdemyCourses("topic").then(res => setCourses([...res.data]))
         return axios.get("/api/udemy/getcourses", {params: { topic: topic }});
     },
 
@@ -92,16 +97,14 @@ export default {
             return axios.get("/api/user/getallitems", { params: { user: user } });
         }
         else throw Error("User is not valid. Data contians: " + user);
+    },
+
+    getPixabay: function() {
+        // return pixabay pictures to display
+
+        // USAGE:
+            // API.getPixabay().then(res => setPixabay([...res.data]))
+            // WIP - need specific topics implemented?
+        return axios.get("/api/pixabay/getpixabay");
     }
-
-
-
-    // get all the books
-    // getExample: function() {
-    //     return axios.get("/api/route");
-    // },
-    // save a new book to mongodb
-    // postExample: function(data) {
-    //     return axios.post("/api/route", data);
-    // }
 };
