@@ -5,6 +5,7 @@ const googlebooksRoutes = require("./googlebooks");
 const udemyRoutes = require("./udemy");
 const stackoverflowRoutes = require("./stackoverflow");
 const w3schoolsRoutes = require("./w3schools");
+const userRoutes = require("./user");
 
 
 // make all api routes use /api/books/
@@ -14,5 +15,6 @@ router.use("/googlebooks", googlebooksRoutes);
 router.use("/udemy", udemyRoutes);
 router.use("/stackoverflow", stackoverflowRoutes);
 router.use("/w3schools", w3schoolsRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;
