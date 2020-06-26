@@ -10,15 +10,16 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.10.2",
-
     "@material-ui/icons": "^4.9.1",
-
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "atob": "^2.1.2",
     "axios": "^0.19.2",
+    "btoa": "^1.2.1",
     "cheerio": "^1.0.0-rc.3",
     "concurrently": "^5.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",

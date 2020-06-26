@@ -1,4 +1,3 @@
-const db = require("../models");
 const axios = require("axios");
 
 module.exports = {
@@ -26,11 +25,7 @@ module.exports = {
         books.splice(randomIndex, 1);
       }
       res.json(results);
-    });
-  },
-
-  saveBookToUsers: function (req, res) {
-    // db.User.create book under user name here
-    res.json("saving book");
+    })
+    .catch(err => console.log(err));
   },
 };

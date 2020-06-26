@@ -5,7 +5,4 @@ const googleBooksController = require("../../controllers/googleBooksController")
 router.route("/getbooks")
       .get(googleBooksController.getBooks);
 
-router.route("/savebook")
-      .post(googleBooksController.saveBookToUsers);
-
 module.exports = router;
