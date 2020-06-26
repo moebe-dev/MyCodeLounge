@@ -91,6 +91,26 @@ export default function CustomizedButtons() {
       HTML
       <ion-icon name="logo-html5"></ion-icon>
       </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      CSS
+      <ion-icon name="logo-css3"></ion-icon>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      JQuery
+      <i class="devicon-jquery-plain"></i>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      React
+      <ion-icon name="logo-react"></ion-icon>
+      </BootstrapButton>
+
+      <BootstrapButton variant="contained" color="primary" className={classes.margin}>
+      Node.js
+      <ion-icon name="logo-nodejs"></ion-icon>
+      </BootstrapButton>
       
     </div>
   );
