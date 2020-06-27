@@ -1,10 +1,7 @@
-import React from "react";
-// import loading from "../assets/loading.svg";
+import React from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const Loading = () => (
-  <div className="spinner">
-    {/* <img src={loading} alt="Loading" /> */}
-  </div>
-);
+export default function CircularUnderLoad() {
+  return <CircularProgress size="5rem" disableShrink />;
+}
 
-export default Loading;

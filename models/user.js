@@ -2,32 +2,27 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema ({
-    User: {
+    user: {
         type: String,
         required: true
     },
     books: [{
-        type: String,
-        required: true
+        type: Object
     }],
     videos: [{
-        type: String,
-        required: true
+        type: Object
     }],
     courses: [{
-        type: String,
-        required: true
+        type: Object
     }],
     questions: [{
-        type: String,
-        required: true
+        type: Object
     }],
     references: [{
-        type: String,
-        required: true
+        type: Object
     }]
 });
 
-const Books = mongoose.model("Users", userSchema);
+const Users = mongoose.model("Users", userSchema);
 
-module.exports = Books;
+module.exports = Users;
