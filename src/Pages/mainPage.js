@@ -22,7 +22,7 @@ export default function Main(props) {
         <div>
           <LeftSideButton />
         </div>
-        {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", flexWrap:"wrap" }}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -30,7 +30,16 @@ export default function Main(props) {
               image= {video.image} 
               description= {video.description}>
             </Card>))}
-        </div> */}
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
+            {props.books.length && props.books.map(books=>(
+            <Card 
+              title= {books.title} 
+              link= {books.link} 
+              image= {books.image} 
+              description= {books.description}>
+            </Card>))}
+        </div>
         <div>
           <FilterButton></FilterButton>
         </div>

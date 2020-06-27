@@ -12,10 +12,12 @@ import Intro from "./Pages/IntroPage"
 import ButtonAppBar from "./Components/NavBar/NavBar"
 import API from "./utils/API";
 import IntroPage from "./Pages/IntroPage"
+import { PropTypes } from 'mobx-react';
 
 
 function App () {
   const [videos, setVideos] = useState([]);  // React state when using fuctions instead of classes
+  const [books, setBooks] = useState([]);
   const { loading, user, isAuthenticated } = useAuth0();
 
     // this is similar method to componentDidMount for classes
@@ -25,17 +27,23 @@ function App () {
          setVideos([...res.data])
        })
        .catch(err => console.log(err));
+
+      API.getGoogleBooks()
+      .then(res => {
+        setBooks([...res.data])
+      })
+      .catch(err => console.log(err))
     }, []);
 
   if(loading) {
     return <Loading style={{position: 'fixed', }}/>
   }
-  // if(!isAuthenticated){
-  //   return(
-  //   <Router history={history}>
-  //   <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-  //   </Router>
-  //   )}
+  if(!isAuthenticated){
+    return(
+    <Router history={history}>
+    <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
+    </Router>
+    )}
 
   console.log(videos)
   return (
@@ -52,7 +60,7 @@ function App () {
         <Switch>
           <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-          <MainPage />
+          <MainPage videos= {videos} books={books}/>
         </Switch>
       </Router>
     </div>
