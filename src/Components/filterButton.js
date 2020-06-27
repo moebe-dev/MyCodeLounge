@@ -1,5 +1,6 @@
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
+import Typography from '@material-ui/core/Typography';
 
 export default function Switches() {
   const [state, setState] = React.useState({
@@ -15,7 +16,7 @@ export default function Switches() {
   };
 
   return (
-    <div style= {{display: 'flex', flexDirection: 'column'}}>
+    <Typography variant='h4' style= {{display: 'flex', flexDirection: 'column'}}>
       <div style= {{display: 'flex', justifyContent: 'flex-end'}}>YouTube
       <Switch
         checked={state.checkedA}
@@ -56,6 +57,6 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-    </div>
+    </Typography>
   );
 }

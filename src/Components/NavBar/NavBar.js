@@ -21,21 +21,21 @@ const theme = createMuiTheme({
 });
 
 export default function ButtonAppBar() {
- 
+
 
   return (
     <ThemeProvider theme={theme}>
-    <div>
-      <AppBar position="static">
+
+      <AppBar  disableGutters>
         <Toolbar>
           <Typography variant="h6">
             <Logo />
           </Typography>
-          <CustomizedInputBase maxWidth="200px"/>
+          <CustomizedInputBase maxWidth="300px"/>
           <LoginButton />
         </Toolbar>
       </AppBar>
-    </div>
+    
     </ThemeProvider>
   );
 }

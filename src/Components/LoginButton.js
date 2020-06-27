@@ -14,7 +14,7 @@ const theme = createMuiTheme({
         backgroundColor: '#f3faf0',
         color: '#444545',
         borderColor: '#b5ffe9',
-        borderRadius: 5,
+        borderRadius: 6,
         border: 6,
         height: 48,
         padding: '0 30px',
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
 
 export default function LoginButton() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
 
 
   return (
@@ -40,7 +40,7 @@ export default function LoginButton() {
 
       {isAuthenticated && (
         <Button onClick={() => logout()}>
-          Log out
+          <p>{user ? <p>{user.name}</p> : <div></div>}</p>
         </Button>
       )}
     </div>

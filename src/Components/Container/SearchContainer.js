@@ -13,7 +13,7 @@ export default function container() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="100%" disableGutters>
-        <Typography component="div" style={{ backgroundColor: '#383939' , color: "white" , height: 400,  marginTop: 100}} >
+        <Typography component="div" style={{ backgroundColor: '#383939' , color: "white" , height: 200,  marginTop: 100}} >
         </Typography>
       </Container>
     </React.Fragment>
