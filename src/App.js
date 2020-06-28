@@ -18,6 +18,8 @@ import { PropTypes } from 'mobx-react';
 function App () {
   const [videos, setVideos] = useState([]);  // React state when using fuctions instead of classes
   const [books, setBooks] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const { loading, user, isAuthenticated } = useAuth0();
 
     // this is similar method to componentDidMount for classes
@@ -33,6 +35,15 @@ function App () {
         setBooks([...res.data])
       })
       .catch(err => console.log(err))
+
+      API.getUdemyCourses()
+      .then(res =>{
+        setCourses([...res.data])
+      })
+      API.searchStackOverFlow()
+      .then(res =>{
+        setAnswers([...res.data])
+      })
     }, []);
 
   if(loading) {
@@ -60,7 +71,7 @@ function App () {
         <Switch>
           <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-          <MainPage videos= {videos} books={books}/>
+          <MainPage videos= {videos} books={books} courses={courses} answers={answers}/>
         </Switch>
       </Router>
     </div>

@@ -17,6 +17,7 @@ module.exports = {
           image: false,
           link: answers[x].link
         });
+        console.log(results);
       }
       res.json(results);
     })

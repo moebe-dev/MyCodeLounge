@@ -16,9 +16,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    
+    objectFit: "fill",
     maxWidth: 225,
-    margin: 10,
+    
+
+    // margin: 10,
   },
   title:{
     color: "red",

@@ -11,6 +11,7 @@ import { useAuth0 } from "../react-auth0-spa";
 import { PropTypes } from "mobx-react";
 import ButtonAppBar from '../Components/NavBar/NavBar'
 
+
 export default function Main(props) {
   console.log(props);
   return (
@@ -22,7 +23,8 @@ export default function Main(props) {
         <div>
           <LeftSideButton />
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap:"wrap" }}>
+        <container>
+        <div style={{ display: "flex",justifyContent: "space-evenly",flexDirection:"row" }}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -31,7 +33,9 @@ export default function Main(props) {
               description= {video.description}>
             </Card>))}
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
+        </container>
+        <container>
+        <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
             {props.books.length && props.books.map(books=>(
             <Card 
               title= {books.title} 
@@ -40,6 +44,29 @@ export default function Main(props) {
               description= {books.description}>
             </Card>))}
         </div>
+        </container>
+        <container>
+        <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+            {props.courses.length && props.courses.map(courses=>(
+            <Card 
+              title= {courses.title} 
+              link= {courses.link} 
+              image= {courses.image} 
+              description= {courses.description}>
+            </Card>))}
+        </div>
+        </container>
+        <container>
+        <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+            {props.answers.length && props.answers.map(answers=>(
+            <Card 
+              title= {answers.title} 
+              link= {answers.link} 
+              image= {answers.image} 
+              description= {answers.description}>
+            </Card>))}
+        </div>
+        </container>
         <div>
           <FilterButton></FilterButton>
         </div>
