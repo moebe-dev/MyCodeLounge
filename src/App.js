@@ -7,12 +7,9 @@ import { useAuth0 } from "./react-auth0-spa";
 import Loading from "./Components/Loading"
 import PrivateRoute from "./Components/PrivateRoute";
 import history from "./utils/history";
-import Main from "./Pages/mainPage";
-import Intro from "./Pages/IntroPage"
 import ButtonAppBar from "./Components/NavBar/NavBar"
 import API from "./utils/API";
-import IntroPage from "./Pages/IntroPage"
-import { PropTypes } from 'mobx-react';
+
 
 
 function App () {
@@ -40,10 +37,10 @@ function App () {
       .then(res =>{
         setCourses([...res.data])
       })
-      API.searchStackOverFlow()
-      .then(res =>{
-        setAnswers([...res.data])
-      })
+      // API.searchStackOverFlow()
+      // .then(res =>{
+      //   setAnswers([...res.data])
+      // })
     }, []);
 
   if(loading) {
@@ -56,7 +53,6 @@ function App () {
     </Router>
     )}
 
-  console.log(videos)
   return (
     <div className="App">
       <Router history={history}>
@@ -71,7 +67,11 @@ function App () {
         <Switch>
           <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-          <MainPage videos= {videos} books={books} courses={courses} answers={answers}/>
+          <MainPage 
+          videos= {videos} 
+          books={books} 
+          courses={courses} 
+          answers={answers}/>
         </Switch>
       </Router>
     </div>

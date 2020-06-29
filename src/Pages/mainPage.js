@@ -24,7 +24,7 @@ export default function Main(props) {
           <LeftSideButton />
         </div>
         <container>
-        <div style={{ display: "flex",justifyContent: "space-evenly",flexDirection:"row" }}>
+        <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row" }}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -33,9 +33,8 @@ export default function Main(props) {
               description= {video.description}>
             </Card>))}
         </div>
-        </container>
-        <container>
-        <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+        <br />
+        <div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.books.length && props.books.map(books=>(
             <Card 
               title= {books.title} 
@@ -44,9 +43,8 @@ export default function Main(props) {
               description= {books.description}>
             </Card>))}
         </div>
-        </container>
-        <container>
-        <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+        <br />
+        <div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.courses.length && props.courses.map(courses=>(
             <Card 
               title= {courses.title} 
@@ -55,8 +53,7 @@ export default function Main(props) {
               description= {courses.description}>
             </Card>))}
         </div>
-        </container>
-        <container>
+        <br />
         <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
             {props.answers.length && props.answers.map(answers=>(
             <Card 

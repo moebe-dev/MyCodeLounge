@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -16,16 +16,15 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    objectFit: "fill",
-    maxWidth: 225,
-    
-
-    // margin: 10,
+    maxHeight:400,
+    maxWidth: 200,
+    marginLeft: 15,
   },
   title:{
     color: "red",
+    fontSize:"10px"
+    
   },
-  
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -40,9 +39,11 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  
 }));
 
-export default function RecipeReviewCard(props) {
+
+export default function MainCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -81,9 +82,9 @@ export default function RecipeReviewCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
+          {/* <Typography paragraph> */}
             {props.description}
-          </Typography>
+          {/* </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

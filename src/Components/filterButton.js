@@ -9,6 +9,7 @@ export default function Switches() {
     checkedC: true,
     checkedD: true,
     checkedE: false,
+    checkedF: true,
   });
 
   const handleChange = (event) => {
@@ -25,15 +26,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
-      <Switch
-        checked={state.checkedB}
-        onChange={handleChange}
-        name="checkedB"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      />
-      </div>
-      <div>Google Books
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Google Books
       <Switch
         checked={state.checkedC}
         onChange={handleChange}
@@ -49,14 +42,23 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Pixabay
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
       <Switch
-        checked={state.checkedE}
+        checked={state.checkedB}
         onChange={handleChange}
-        name="checkedE"
+        name="checkedB"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Stack Overflow
+      <Switch
+        checked={state.checkedF}
+        onChange={handleChange}
+        name="checkedF"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+      </div>
+      
     </Typography>
   );
 }

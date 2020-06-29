@@ -35,8 +35,9 @@ export default function CustomizedInputBase() {
         className={classes.input}
         placeholder="Search"
         inputProps={{ 'aria-label': 'search' }}
+        onClick//something for the onclick event
       />
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+      <IconButton type="submit" className={classes.searchButton} aria-label="search">
         <SearchIcon />
       </IconButton>
       
