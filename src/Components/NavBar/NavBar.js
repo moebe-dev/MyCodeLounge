@@ -20,8 +20,7 @@ const theme = createMuiTheme({
   },
 });
 
-export default function ButtonAppBar() {
-
+export default function ButtonAppBar(props) {
 
   return (
     <ThemeProvider theme={theme}>
@@ -31,7 +30,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6">
             <Logo />
           </Typography>
-          <CustomizedInputBase maxWidth="300px"/>
+          <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
           <LoginButton />
         </Toolbar>
       </AppBar>

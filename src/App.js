@@ -19,6 +19,29 @@ function App () {
   const [answers, setAnswers] = useState([]);
   const { loading, user, isAuthenticated } = useAuth0();
 
+  const getQueryTopic = (query) => {
+    API.searchStackOverFlow(query)
+    .then(res =>{
+      setAnswers([...res.data])
+    });
+    API.getYoutubeVideos(query)
+       .then(res => {
+         setVideos([...res.data])
+       })
+       .catch(err => console.log(err));
+
+      API.getGoogleBooks(query)
+      .then(res => {
+        setBooks([...res.data])
+      })
+      .catch(err => console.log(err))
+
+      API.getUdemyCourses(query)
+      .then(res =>{
+        setCourses([...res.data])
+      })
+  }
+
     // this is similar method to componentDidMount for classes
     useEffect(() => {
       API.getYoutubeVideos()
@@ -57,13 +80,14 @@ function App () {
     <div className="App">
       <Router history={history}>
         <header>
-          <ButtonAppBar />
+          <ButtonAppBar getQueryTopic={getQueryTopic}/>
         </header>
         <br />
         <br />
         <br />
         <br />
         <br />
+        
         <Switch>
           <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
