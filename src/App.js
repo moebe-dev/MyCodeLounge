@@ -95,7 +95,8 @@ function App () {
           videos= {videos} 
           books={books} 
           courses={courses} 
-          answers={answers}/>
+          answers={answers}
+          getQueryTopic={getQueryTopic}/>
         </Switch>
       </Router>
     </div>

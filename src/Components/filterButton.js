@@ -17,7 +17,7 @@ export default function Switches() {
   };
 
   return (
-    <Typography variant='h4' style= {{display: 'flex', flexDirection: 'column'}}>
+    <Typography  style= {{display: 'flex', flexDirection: 'column'}}>
       <div style= {{display: 'flex', justifyContent: 'flex-end'}}>YouTube
       <Switch
         checked={state.checkedA}

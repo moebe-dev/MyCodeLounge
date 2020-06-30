@@ -15,21 +15,39 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const useStyles = makeStyles((theme) => ({
+  
   root: {
-    maxHeight:400,
-    maxWidth: 200,
+    maxHeight:450,
+    width: 220,
     marginLeft: 15,
+    // minHeight: "265px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "spaceBetween",
+    // position: "relative",
   },
   title:{
     color: "red",
-    fontSize:"10px"
+    height: "20%",
+    
     
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: "50%",
+    paddingTop: '55.25%', // 16:9
+
+
   },
+  actions:{
+// position:"absolute",
+// bottom: 0,
+// width: "100%",
+  },
+cardContent:{
+overflow: "auto"
+},
   expand: {
+    
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
@@ -37,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   expandOpen: {
+    
     transform: 'rotate(180deg)',
   },
   
@@ -62,7 +81,8 @@ export default function MainCard(props) {
         image={props.image}
       />
       
-      <CardActions disableSpacing>
+      <CardActions className= {classes.actions} disableSpacing>
+        
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
@@ -80,8 +100,8 @@ export default function MainCard(props) {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+      <Collapse in={expanded} timeout="auto" unmountOnExit className= {classes.cardContent}>
+        <CardContent >
           {/* <Typography paragraph> */}
             {props.description}
           {/* </Typography> */}
