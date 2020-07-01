@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "../../../react-auth0-spa";
 import Button from "@material-ui/core/Button";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';

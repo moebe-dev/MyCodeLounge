@@ -1,15 +1,15 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-import LoginButton from './Components/LoginButton';
+import LoginButton from './components/layout/buttons/LoginButton';
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
 // import Profile from "./Components/Profile";
-import Loading from "./Components/Loading"
-import PrivateRoute from "./Components/PrivateRoute";
+import Loading from "./components/layout/Loading"
+import PrivateRoute from "./components/PrivateRoute";
 import history from "./utils/history";
 import Main from "./Pages/mainPage";
 import Intro from "./Pages/IntroPage"
-import ButtonAppBar from "./Components/NavBar/NavBar"
+import ButtonAppBar from "./components/layout/navbar/NavBar"
 import API from "./utils/API";
 import IntroPage from "./Pages/IntroPage"
 
@@ -30,12 +30,12 @@ function App () {
   if(loading) {
     return <Loading style={{position: 'fixed', }}/>
   }
-  // if(!isAuthenticated){
-  //   return(
-  //   <Router history={history}>
-  //   <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-  //   </Router>
-  //   )}
+  if(!isAuthenticated){
+    return(
+    <Router history={history}>
+    <Route path="/" component = {()=><IntroPage />}/>
+    </Router>
+    )}
 
   console.log(videos)
   return (
@@ -44,13 +44,9 @@ function App () {
         <header>
           <ButtonAppBar />
         </header>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        
         <Switch>
-          <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
+          <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
           <MainPage />
         </Switch>

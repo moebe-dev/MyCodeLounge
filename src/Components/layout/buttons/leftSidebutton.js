@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createMuiTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import API from "../utils/API";
+import API from "../../../utils/API";
 
 import lightBlue from '@material-ui/core/colors/blue';
 
@@ -9,42 +9,33 @@ import lightBlue from '@material-ui/core/colors/blue';
 
 const BootstrapButton = withStyles({
   root: {
-    borderRadius: '150px',
+    borderRadius: 100,
     textTransform: 'none',
-    fontSize: '4rem',
+    fontSize: '3rem',
     padding: '20px',
-    lineHeight: 1.5,
+    lineHeight: 0.5,
     // backgroundColor: '#E6E600',
     // borderColor: '#E6E600',
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
+      // '-apple-system',
+      // 'BlinkMacSystemFont',
+      // '"Segoe UI"',
+      // 'Roboto',
+      // '"Helvetica Neue"',
+      // 'Arial',
+      // 'sans-serif',
+      // '"Apple Color Emoji"',
+      // '"Segoe UI Emoji"',
+      // '"Segoe UI Symbol"',
     ].join(','),
 
   },
 })(Button);
 
-// const ColorButton = withStyles((theme) => ({
-//   root: {
-//     color: theme.palette.getContrastText(purple[500]),
-//     backgroundColor: purple[500],
-//     '&:hover': {
-//       backgroundColor: purple[700],
-//     },
-//   },
-// }))(Button);
 
 const useStyles = makeStyles((theme) => ({
   margin: {
-    margin: theme.spacing(3),
+    margin: theme.spacing(1.5),
   
   },
 
