@@ -1,9 +1,9 @@
 import React from "react";
-import LoginButton from "../Components/LoginButton"
-import SimpleContainer from "../Components/Container/Container"
+import LoginButton from "../components/layout/buttons/LoginButton"
+import SimpleContainer from "../components/layout/container/Container"
 import { CssBaseline } from "@material-ui/core";
-import ButtonAppBar from '../Components/NavBar/NavBar'
-import CardBoxes from '../Components/IntroCard';
+import ButtonAppBar from '../components/layout/navbar/NavBar'
+import CardBoxes from '../components/layout/cards/IntroCard';
 
 export default function Intro() {
 

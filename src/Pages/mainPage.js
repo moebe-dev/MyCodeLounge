@@ -1,15 +1,8 @@
 import React from "react";
-import SvgIconsSize from "../Components/icon";
-import CustomizedInputBase from "../Components/search";
-import BasicButtonGroup from "../Components/tRButtons";
-import CarouseBanner from "../Components/carousel";
-import FilterButton from "../Components/filterButton";
-import LeftSideButton from "../Components/leftSidebutton";
-import Card from "../Components/cards/cards";
-import LoginButton from "../Components/LoginButton"
-import { useAuth0 } from "../react-auth0-spa";
-import { PropTypes } from "mobx-react";
-import ButtonAppBar from '../Components/NavBar/NavBar'
+import CarouseBanner from "../Components/layout/carousel/carousel";
+import FilterButton from "../Components/layout/buttons/filterButton";
+import LeftSideButton from "../Components/layout/buttons/leftSidebutton";
+import Card from "../Components/layout/cards/cards";
 import "../Components/cards/cards.css"
 import "../Pages/mainPage.css"
 

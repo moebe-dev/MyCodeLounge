@@ -1,6 +1,20 @@
 import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    color: '#ffffff',
+    '& > *': {
+      margin: theme.spacing(10),
+    },
+  },
+}));
 
 export default function Switches(props) {
   let { state, setState } = props

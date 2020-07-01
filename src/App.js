@@ -1,13 +1,15 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-import LoginButton from './Components/LoginButton';
+
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
 // import Profile from "./Components/Profile";
-import Loading from "./Components/Loading"
+import Loading from "./Components/layout/Loading"
 import PrivateRoute from "./Components/PrivateRoute";
 import history from "./utils/history";
-import ButtonAppBar from "./Components/NavBar/NavBar"
+
+import Intro from "./Pages/IntroPage.Js"
+import ButtonAppBar from "./Components/layout/navbar/NavBar"
 import API from "./utils/API";
 
 
@@ -52,10 +54,11 @@ function App () {
   if(!isAuthenticated){
     return(
     <Router history={history}>
-    <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
+    <Route path="/" component = {()=><Intro/>}/>
     </Router>
     )}
 
+  console.log(videos)
   return (
     <div className="App">
       <Router history={history}>
@@ -69,7 +72,7 @@ function App () {
         <br />
         
         <Switch>
-          <Route path="/IntroPage" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
+          <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
           <MainPage 
           videos= {videos} 
