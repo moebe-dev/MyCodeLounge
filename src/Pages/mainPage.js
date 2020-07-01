@@ -5,12 +5,12 @@ import BasicButtonGroup from "../Components/tRButtons";
 import CarouseBanner from "../Components/carousel";
 import FilterButton from "../Components/filterButton";
 import LeftSideButton from "../Components/leftSidebutton";
-import Card from "../Components/cards";
+import Card from "../Components/cards/cards";
 import LoginButton from "../Components/LoginButton"
 import { useAuth0 } from "../react-auth0-spa";
 import { PropTypes } from "mobx-react";
 import ButtonAppBar from '../Components/NavBar/NavBar'
-
+import "../Components/cards/cards.css"
 
 export default function Main(props) {
   const [state, setState] = React.useState({
@@ -30,10 +30,10 @@ export default function Main(props) {
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <LeftSideButton />
+          <LeftSideButton getQueryTopic={props.getQueryTopic}/>
         </div>
         <container>
-        {state.checkedA ? <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row" }}>
+        {state.checkedA ? <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 

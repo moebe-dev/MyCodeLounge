@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CustomizedButtons() {
+export default function CustomizedButtons({getQueryTopic}) {
   const classes = useStyles();
 
   return (
@@ -48,6 +48,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("html")}
       >
         <ion-icon name="logo-html5"></ion-icon>
       </BootstrapButton>
@@ -56,6 +57,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("css")}
       >
         <ion-icon name="logo-css3"></ion-icon>
       </BootstrapButton>
@@ -63,6 +65,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("javascript")}
       >
         <ion-icon name="logo-javascript"></ion-icon>
       </BootstrapButton>
@@ -70,6 +73,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("jquery")}
       >
         <i className="devicon-jquery-plain"></i>
       </BootstrapButton>
@@ -78,6 +82,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("react")}
       >
         <ion-icon name="logo-react"></ion-icon>
       </BootstrapButton>
@@ -86,6 +91,7 @@ export default function CustomizedButtons() {
         variant="contained"
         color="primary"
         className={classes.margin}
+        onClick= {()=>getQueryTopic("node.js")}
       >
         <ion-icon name="logo-nodejs"></ion-icon>
       </BootstrapButton>

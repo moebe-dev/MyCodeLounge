@@ -43,7 +43,7 @@ function App () {
 
       API.getUdemyCourses()
       .then(res => setCourses([...res.data]));
-      
+
     }, []);
 
   if(loading) {
@@ -76,7 +76,8 @@ function App () {
           books={books} 
           courses={courses} 
           answers={answers}
-          user={user.email}/>
+          user={user.email}
+          getQueryTopic={getQueryTopic}/>
         </Switch>
       </Router>
     </div>
