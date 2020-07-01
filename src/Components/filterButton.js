@@ -2,15 +2,8 @@ import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import Typography from '@material-ui/core/Typography';
 
-export default function Switches() {
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedC: true,
-    checkedD: true,
-    checkedE: false,
-    checkedF: true,
-  });
+export default function Switches(props) {
+  let { state, setState } = props
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
@@ -28,13 +21,21 @@ export default function Switches() {
       </div>
       <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Google Books
       <Switch
+        checked={state.checkedB}
+        onChange={handleChange}
+        name="checkedB"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+      </div>
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Udemy
+      <Switch
         checked={state.checkedC}
         onChange={handleChange}
         name="checkedC"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Udemy
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
       <Switch
         checked={state.checkedD}
         onChange={handleChange}
@@ -42,19 +43,11 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
-      <Switch
-        checked={state.checkedB}
-        onChange={handleChange}
-        name="checkedB"
-        inputProps={{ 'aria-label': 'secondary checkbox' }}
-      />
-      </div>
       <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Stack Overflow
       <Switch
-        checked={state.checkedF}
+        checked={state.checkedE}
         onChange={handleChange}
-        name="checkedF"
+        name="checkedE"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>

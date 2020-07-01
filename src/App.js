@@ -21,49 +21,29 @@ function App () {
 
   const getQueryTopic = (query) => {
     API.searchStackOverFlow(query)
-    .then(res =>{
-      setAnswers([...res.data])
-    });
+       .then(res => setAnswers([...res.data]));
+
     API.getYoutubeVideos(query)
-       .then(res => {
-         setVideos([...res.data])
-       })
-       .catch(err => console.log(err));
+       .then(res => setVideos([...res.data]));
 
-      API.getGoogleBooks(query)
-      .then(res => {
-        setBooks([...res.data])
-      })
-      .catch(err => console.log(err))
+    API.getGoogleBooks(query)
+      .then(res => setBooks([...res.data]));
 
-      API.getUdemyCourses(query)
-      .then(res =>{
-        setCourses([...res.data])
-      })
+    API.getUdemyCourses(query)
+      .then(res => setCourses([...res.data]));
   }
 
     // this is similar method to componentDidMount for classes
     useEffect(() => {
       API.getYoutubeVideos()
-       .then(res => {
-         setVideos([...res.data])
-       })
-       .catch(err => console.log(err));
+       .then(res => setVideos([...res.data]));
 
       API.getGoogleBooks()
-      .then(res => {
-        setBooks([...res.data])
-      })
-      .catch(err => console.log(err))
+      .then(res => setBooks([...res.data]));
 
       API.getUdemyCourses()
-      .then(res =>{
-        setCourses([...res.data])
-      })
-      // API.searchStackOverFlow()
-      // .then(res =>{
-      //   setAnswers([...res.data])
-      // })
+      .then(res => setCourses([...res.data]));
+      
     }, []);
 
   if(loading) {
@@ -95,7 +75,8 @@ function App () {
           videos= {videos} 
           books={books} 
           courses={courses} 
-          answers={answers}/>
+          answers={answers}
+          user={user.email}/>
         </Switch>
       </Router>
     </div>

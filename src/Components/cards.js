@@ -12,6 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import API from "../utils/API";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,6 +52,18 @@ export default function MainCard(props) {
     setExpanded(!expanded);
   };
 
+  const saveToUserProfile = (props) => {
+    const { user, type, title, description, image, link } = props;
+    const data = {
+      title: title,
+      description: description,
+      image: image,
+      link: link
+    }
+    API.saveToUser(user, type, data)
+       .catch(err => console.log(err));
+  }
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -63,9 +76,10 @@ export default function MainCard(props) {
       />
       
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)}>
           <FavoriteIcon />
         </IconButton>
+        
         <IconButton aria-label="share" href={props.link}>
           <ShareIcon/>
         </IconButton>
