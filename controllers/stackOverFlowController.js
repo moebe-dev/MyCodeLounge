@@ -14,7 +14,7 @@ module.exports = {
         results.push({
           title: answers[x].title,
           description: "Answer to question: " + req.query.question,
-          image: "/public/img/stackoverflow.png",
+          image: "https://jessehouwing.net/content/images/size/w2000/2018/07/stackoverflow-1.png",
           link: answers[x].link
         });
       }

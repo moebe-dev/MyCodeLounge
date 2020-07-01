@@ -7,7 +7,7 @@ import CustomizedInputBase from '../search';
 import Logo from '../Logos/Logo'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-
+import AccountBtn from '../accountBtn'
 
 const theme = createMuiTheme({
   overrides: {
@@ -32,6 +32,7 @@ export default function ButtonAppBar(props) {
           </Typography>
           <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
           <LoginButton />
+          <AccountBtn/>
         </Toolbar>
       </AppBar>
     
