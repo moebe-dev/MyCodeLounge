@@ -1,14 +1,10 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
-// import Profile from "./Components/Profile";
 import Loading from "./Components/layout/Loading"
-import PrivateRoute from "./Components/PrivateRoute";
 import history from "./utils/history";
-
-import Intro from "./Pages/IntroPage.Js"
+import Intro from "./Pages/IntroPage"
 import ButtonAppBar from "./Components/layout/navbar/NavBar"
 import API from "./utils/API";
 
@@ -72,8 +68,7 @@ function App () {
         <br />
         
         <Switch>
-          <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
-          <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
+          
           <MainPage 
           videos= {videos} 
           books={books} 

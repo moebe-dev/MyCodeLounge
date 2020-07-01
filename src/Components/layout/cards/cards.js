@@ -1,53 +1,125 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import API from "../../../utils/API";
 
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
+  
   root: {
-    minWidth: 275,
-    maxWidth: 350,
-    margin: 20,
+    maxHeight:450,
+    width: 220,
+    marginLeft: 15,
+    // minHeight: "265px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "spaceBetween",
+    // position: "relative",
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+  title:{
+    color: "red",
+    height: "20%",
+    
+    
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: "50%",
+    paddingTop: '55.25%', // 16:9
+
+
   },
+  actions:{
+// position:"absolute",
+// bottom: 0,
+// width: "100%",
+  },
+cardContent:{
+overflow: "auto"
+},
+  expand: {
+    
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    
+    transform: 'rotate(180deg)',
+  },
+  
+}));
 
-});
 
-export default function OutlinedCard(props) {
+export default function MainCard(props) {
   const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  const saveToUserProfile = (props) => {
+    const { user, type, title, description, image, link } = props;
+    const data = {
+      title: title,
+      description: description,
+      image: image,
+      link: link
+    }
+    API.saveToUser(user, type, data)
+       .catch(err => console.log(err));
+  }
+
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
+    <Card className={classes.root}>
+      <CardHeader
+        className={classes.title}
+        title={props.title}
+      />
+      <CardMedia
+        className={classes.media}
+        image={props.image}
+      />
+      
+      <CardActions className= {classes.actions} disableSpacing>
         
-        <Typography variant="h5" component="h2">
-          {props.title}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {props.description}
-        </Typography>
+        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)}> 
+          <FavoriteIcon />
+        </IconButton>
         
-      </CardContent>
-      <CardActions>
-        <Button size="small" href= {props.link}>Link</Button>
+        <IconButton aria-label="share" href={props.link}>
+          <ShareIcon/>
+        </IconButton>
+        <IconButton
+          className={clsx(classes.expand, {
+            [classes.expandOpen]: expanded,
+          })}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </IconButton>
       </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit className= {classes.cardContent}>
+        <CardContent >
+          {/* <Typography paragraph> */}
+            {props.description}
+          {/* </Typography> */}
+        </CardContent>
+      </Collapse>
     </Card>
   );
 }

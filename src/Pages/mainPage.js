@@ -3,7 +3,7 @@ import CarouseBanner from "../Components/layout/carousel/carousel";
 import FilterButton from "../Components/layout/buttons/filterButton";
 import LeftSideButton from "../Components/layout/buttons/leftSidebutton";
 import Card from "../Components/layout/cards/cards";
-import "../Components/cards/cards.css"
+import "../Components/layout/cards/cards.css"
 import "../Pages/mainPage.css"
 
 
