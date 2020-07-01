@@ -35,11 +35,6 @@ export default function OutlinedCard(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root} variant="outlined">
-      <CardMedia
-          className={classes.media}
-          image={props.image}
-          title="Contemplative Reptile"
-        />
       <CardContent>
         
         <Typography variant="h5" component="h2">

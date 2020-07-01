@@ -1,36 +1,28 @@
 import React from "react";
-import SvgIconsSize from "../Components/icon";
-import CustomizedInputBase from "../Components/search";
-import BasicButtonGroup from "../Components/tRButtons";
-import CarouseBanner from "../Components/carousel";
-import FilterButton from "../Components/filterButton";
-import LeftSideButton from "../Components/leftSidebutton";
-import Card from "../Components/cards";
-import LoginButton from "../Components/LoginButton"
+import SvgIconsSize from "../components/layout/icon";
+import CustomizedInputBase from "../components/layout/search/search";
+import BasicButtonGroup from "../components/layout/buttons/tRButtons";
+import CarouseBanner from "../components/layout/carousel/carousel";
+import FilterButton from "../components/layout/buttons/filterButton";
+import LeftSideButton from "../components/layout/buttons/leftSidebutton";
+import Card from "../components/layout/cards/cards";
+import LoginButton from "../components/layout/buttons/LoginButton"
 import { useAuth0 } from "../react-auth0-spa";
 import { PropTypes } from "mobx-react";
+import ButtonAppBar from '../components/layout/navbar/NavBar'
 
 export default function Main(props) {
   console.log(props);
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {/* row 1 */}
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <SvgIconsSize></SvgIconsSize>
-        <CustomizedInputBase></CustomizedInputBase>
-        <BasicButtonGroup></BasicButtonGroup>
-      </div>
-      {/* row 2 carousel */}
-      <div>
-        {/* <LoginButton /> */}
-        <CarouseBanner></CarouseBanner>
-      </div>
+      <React.Fragment>
+        <CarouseBanner />
+      
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <LeftSideButton></LeftSideButton>
+          <LeftSideButton />
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -38,11 +30,12 @@ export default function Main(props) {
               image= {video.image} 
               description= {video.description}>
             </Card>))}
-        </div>
+        </div> */}
         <div>
           <FilterButton></FilterButton>
         </div>
-      </div>
+  
     </div>
+    </React.Fragment>
   );
 }

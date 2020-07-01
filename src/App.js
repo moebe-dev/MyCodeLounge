@@ -1,14 +1,17 @@
 import React, { Component, useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-import LoginButton from './Components/LoginButton';
+import LoginButton from './components/layout/buttons/LoginButton';
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
 // import Profile from "./Components/Profile";
-// import Loading from "./Components/Loading"
-import PrivateRoute from "./Components/PrivateRoute";
+import Loading from "./components/layout/Loading"
+import PrivateRoute from "./components/PrivateRoute";
 import history from "./utils/history";
-// import NavBar from "./Components/NavBar/NavBar"
+import Main from "./Pages/mainPage";
+import Intro from "./Pages/IntroPage"
+import ButtonAppBar from "./components/layout/navbar/NavBar"
 import API from "./utils/API";
+import IntroPage from "./Pages/IntroPage"
 
 
 function App () {
@@ -25,12 +28,12 @@ function App () {
     }, []);
 
   if(loading) {
-    return <h1>DOG</h1>
+    return <Loading style={{position: 'fixed', }}/>
   }
   if(!isAuthenticated){
     return(
     <Router history={history}>
-    <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>)
+    <Route path="/" component = {()=><IntroPage />}/>
     </Router>
     )}
 
@@ -39,11 +42,9 @@ function App () {
     <div className="App">
       <Router history={history}>
         <header>
-    {/* <NavBar /> */}
-     <LoginButton />
-            
-          <p>{user ? <p>{user.email}</p> : <div></div>}</p>   
+          <ButtonAppBar />
         </header>
+        
         <Switch>
           <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
           <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>

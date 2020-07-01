@@ -1,9 +1,26 @@
 import React from 'react';
-import Carousel from 'react-material-ui-carousel'
-import {Paper} from '@material-ui/core'
+import Carousel from 'react-material-ui-carousel';
+import {Paper} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function CarouseBanner(props)
-{
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(5),
+        width: theme.spacing(150),
+        height: theme.spacing(30),
+        textAlign: "center",
+      },
+    },
+  }));
+
+export default function CarouseBanner(props){
+    
+
     var items = [
         {
             name: "Random Name #1",
@@ -32,12 +49,14 @@ export default function CarouseBanner(props)
     )
 }
  
-function Item(props)
-{
+function Item(props){
+const classes = useStyles();
     return (
-        <Paper>
+        <div className={classes.root}>
+        <Paper elevation={3}>
             <h2>{props.item.name}</h2>
             <p>{props.item.description}</p>
         </Paper>
+        </div>
     )
 }
