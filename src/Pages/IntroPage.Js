@@ -1,20 +1,19 @@
 import React from "react";
-import { sizing } from '@material-ui/system';
-import Container from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
+import SimpleContainer from "../Components/layout/container/Container.js"
+import { CssBaseline } from "@material-ui/core";
+import ButtonAppBar from '../Components/layout/navbar/NavBar'
+import CardBoxes from '../Components/layout/cards/IntroCard';
 
-export default function SimpleContainer() {
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Box width="100%">
-            <Container maxWidth="sm">
-            <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }} />
-            </Container>
-        </Box>
-      </React.Fragment>
-    );
-  }
+export default function Intro() {
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      {/* <LoginButton /> */}
+      <ButtonAppBar />
+      <SimpleContainer />
+      <CardBoxes />
+    </React.Fragment>
+  );
+}

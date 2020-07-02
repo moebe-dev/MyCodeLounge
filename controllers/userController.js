@@ -32,5 +32,9 @@ module.exports = {
     db.Users.findOne({ user: req.query.user })
       .then(dbItems => res.json(dbItems))
       .catch(err => console.log(err));
+  },
+
+  removeItemFromUser: function (req, res) {
+    console.log("removing item from user");
   }
 };

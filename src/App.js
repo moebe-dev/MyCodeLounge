@@ -1,36 +1,56 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
-import LoginButton from './Components/LoginButton';
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
-// import Profile from "./Components/Profile";
-// import Loading from "./Components/Loading"
-import PrivateRoute from "./Components/PrivateRoute";
+import Loading from "./Components/layout/Loading"
 import history from "./utils/history";
-// import NavBar from "./Components/NavBar/NavBar"
+import Intro from "./Pages/IntroPage"
+import ButtonAppBar from "./Components/layout/navbar/NavBar"
 import API from "./utils/API";
+
 
 
 function App () {
   const [videos, setVideos] = useState([]);  // React state when using fuctions instead of classes
+  const [books, setBooks] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const { loading, user, isAuthenticated } = useAuth0();
+
+  const getQueryTopic = (query) => {
+    API.searchStackOverFlow(query)
+       .then(res => setAnswers([...res.data]));
+
+    API.getYoutubeVideos(query)
+       .then(res => setVideos([...res.data]));
+
+    API.getGoogleBooks(query)
+      .then(res => setBooks([...res.data]));
+
+    API.getUdemyCourses(query)
+      .then(res => setCourses([...res.data]));
+  }
 
     // this is similar method to componentDidMount for classes
     useEffect(() => {
       API.getYoutubeVideos()
-       .then(res => {
-         setVideos([...res.data])
-       })
-       .catch(err => console.log(err));
+       .then(res => setVideos([...res.data]));
+
+      API.getGoogleBooks()
+      .then(res => setBooks([...res.data]));
+
+      API.getUdemyCourses()
+      .then(res => setCourses([...res.data]));
+
     }, []);
 
   if(loading) {
-    return <h1>DOG</h1>
+    return <Loading style={{position: 'fixed', }}/>
   }
   if(!isAuthenticated){
     return(
     <Router history={history}>
-    <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>)
+    <Route path="/" component = {()=><Intro/>}/>
     </Router>
     )}
 
@@ -39,15 +59,23 @@ function App () {
     <div className="App">
       <Router history={history}>
         <header>
-    {/* <NavBar /> */}
-     <LoginButton />
-            
-          <p>{user ? <p>{user.email}</p> : <div></div>}</p>   
+          <ButtonAppBar getQueryTopic={getQueryTopic}/>
         </header>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
         <Switch>
-          <Route path="/" exact component = {()=><MainPage videos={videos}></MainPage>}/> 
-          <PrivateRoute path="/mainPage" component = {()=><MainPage videos={videos}></MainPage>}/>
-          <MainPage />
+          
+          <MainPage 
+          videos= {videos} 
+          books={books} 
+          courses={courses} 
+          answers={answers}
+          user={user.email}
+          getQueryTopic={getQueryTopic}/>
         </Switch>
       </Router>
     </div>

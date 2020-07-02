@@ -9,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    color: '#ffffff',
     '& > *': {
-      margin: theme.spacing(1),
+      margin: theme.spacing(10),
     },
   },
 }));
