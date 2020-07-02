@@ -16,7 +16,7 @@ export default function SimpleMenu() {
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{backgroundColor: '#E0F0F0'}}>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{backgroundColor: '#E0F0F0', height:30, marginLeft:10}}>
         Account
       </Button>
       <Menu
@@ -26,9 +26,9 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        
         <MenuItem onClick={handleClose}>My Favorites</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Contact Us</MenuItem>
       </Menu>
     </div>
   );

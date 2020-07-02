@@ -8,10 +8,11 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: '20px',
+    marginLeft: '50px',
     padding: '2px 4px',
     display: 'flex',
     alignItems: 'center',
-    width: 400,
+    width: 1500,
     height: 30,
   },
   input: {

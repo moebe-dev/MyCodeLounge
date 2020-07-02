@@ -10,7 +10,7 @@ const theme = createMuiTheme({
     MuiButton: {
       
       text: {
-        marginLeft: '600px',
+        display:'flex',
         backgroundColor: '#f3faf0',
         color: '#444545',
         borderColor: '#b5ffe9',

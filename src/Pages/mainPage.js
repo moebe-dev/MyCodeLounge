@@ -79,8 +79,8 @@ export default function Main(props) {
           </div><br /> </div>: <div></div> }
           <br />
         </container>
-        <div>
-          <FilterButton state={state} setState={setState}/>
+        <div className= "filterButton">
+          <FilterButton state={state} setState={setState} />
         </div>
   
     </div>

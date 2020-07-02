@@ -95,7 +95,7 @@ export default function MainCard(props) {
       
       <CardActions className= {classes.actions} disableSpacing>
         
-        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)}> 
+        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)} style={{color:"#F01202"}}> 
           <FavoriteIcon />
         </IconButton>
         
