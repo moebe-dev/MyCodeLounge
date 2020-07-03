@@ -8,7 +8,6 @@ import Loading from "./components/layout/Loading"
 import PrivateRoute from "./components/PrivateRoute";
 import history from "./utils/history";
 import Main from "./Pages/mainPage";
-import Intro from "./Pages/IntroPage"
 import ButtonAppBar from "./components/layout/navbar/NavBar"
 import API from "./utils/API";
 import IntroPage from "./Pages/IntroPage"
