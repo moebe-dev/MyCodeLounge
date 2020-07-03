@@ -12,7 +12,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import API from "../../../utils/API";
-
+import ReactPlayer from 'react-player'
 
 const useStyles = makeStyles((theme) => ({
   
@@ -29,14 +29,13 @@ const useStyles = makeStyles((theme) => ({
   title:{
     color: "red",
     height: "20%",
-    
-    
   },
   media: {
     height: "50%",
     paddingTop: '55.25%', // 16:9
-
-
+  },
+  mediaVideo: {
+    height: "50%"
   },
   actions:{
 // position:"absolute",
@@ -86,12 +85,11 @@ export default function MainCard(props) {
     <Card className={classes.root}>
       <CardHeader
         className={classes.title}
-        title={props.title}
+        title={<a className={classes.title} href={props.type === "videos" ? "https://www.youtube.com/watch?v=" + props.link : props.link}>{props.title}</a>}
       />
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-      />
+      <CardMedia className={props.type === "videos" ? classes.mediaVideo : classes.media} image={props.type === "videos" ? "" : props.image} >
+        {props.type === "videos" ? <ReactPlayer url={"https://www.youtube.com/watch?v=" + props.link} width='225px' height='150px'/> : <div></div> }
+      </CardMedia>
       
       <CardActions className= {classes.actions} disableSpacing>
         
