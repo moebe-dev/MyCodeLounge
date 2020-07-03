@@ -2,12 +2,13 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import LoginButton from '../LoginButton';
-import CustomizedInputBase from '../search';
-import Logo from '../Logos/Logo'
+import LoginButton from '../buttons/LoginButton';
+import CustomizedInputBase from '../search/search';
+import Logo from '../../../assets/Logos/Logo';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-
+import AccountBtn from '../buttons/accountBtn';
+import ResourceBtn from '../buttons/resourceBtn';
 
 const theme = createMuiTheme({
   overrides: {
@@ -22,19 +23,22 @@ const theme = createMuiTheme({
 
 export default function ButtonAppBar(props) {
 
+
   return (
     <ThemeProvider theme={theme}>
-
-      <AppBar  disableGutters>
+      <div>
+      <AppBar  postition= "fixed" disableGutters>
         <Toolbar>
           <Typography variant="h6">
-            <Logo />
+            <Logo edge= "start"/>
           </Typography>
           <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
+          <ResourceBtn/>
           <LoginButton />
+          <AccountBtn/>
         </Toolbar>
       </AppBar>
-    
+      </div>
     </ThemeProvider>
   );
 }

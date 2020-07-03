@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "../../../react-auth0-spa";
 import Button from "@material-ui/core/Button";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -8,16 +8,16 @@ const theme = createMuiTheme({
   overrides: {
     // Style sheet name ⚛️
     MuiButton: {
-      // Name of the rule
+      
       text: {
-        // Some CSS
+        display:'flex',
         backgroundColor: '#f3faf0',
         color: '#444545',
         borderColor: '#b5ffe9',
         borderRadius: 6,
         border: 6,
-        height: 48,
-        padding: '0 30px',
+        height: 30,
+        padding: '0 20px',
       },
     },
   },

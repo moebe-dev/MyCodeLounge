@@ -1,16 +1,12 @@
 import React from "react";
-import SvgIconsSize from "../Components/icon";
-import CustomizedInputBase from "../Components/search";
-import BasicButtonGroup from "../Components/tRButtons";
-import CarouseBanner from "../Components/carousel";
-import FilterButton from "../Components/filterButton";
-import LeftSideButton from "../Components/leftSidebutton";
-import Card from "../Components/cards/cards";
-import LoginButton from "../Components/LoginButton"
-import { useAuth0 } from "../react-auth0-spa";
-import { PropTypes } from "mobx-react";
-import ButtonAppBar from '../Components/NavBar/NavBar'
-import "../Components/cards/cards.css"
+import CarouseBanner from "../Components/layout/carousel/carousel";
+import FilterButton from "../Components/layout/buttons/filterButton";
+import LeftSideButton from "../Components/layout/buttons/leftSidebutton";
+import Card from "../Components/layout/cards/cards";
+import "../Components/layout/cards/cards.css"
+import "../Pages/mainPage.css"
+
+
 
 export default function Main(props) {
   const [state, setState] = React.useState({
@@ -33,7 +29,8 @@ export default function Main(props) {
           <LeftSideButton getQueryTopic={props.getQueryTopic}/>
         </div>
         <container>
-        {state.checkedA ? <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
+        <br />
+        {state.checkedA ?<div> <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -43,9 +40,9 @@ export default function Main(props) {
               user={props.user}
               type="videos">
             </Card>))}
-          </div> : <div></div> }
+          </div> <br /></div>: <div></div> }
         <br />
-        {state.checkedB ? <div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedB ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.books.length && props.books.map(books=>(
             <Card 
               title= {books.title} 
@@ -55,9 +52,9 @@ export default function Main(props) {
               user={props.user}
               type="books">
             </Card>))}
-          </div> : <div></div> }
+          </div><br /> </div>: <div></div> }
         <br />
-        {state.checkedC ? <div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedC ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.courses.length && props.courses.map(courses=>(
             <Card 
               title= {courses.title} 
@@ -67,9 +64,9 @@ export default function Main(props) {
               user={props.user}
               type="courses">
             </Card>))}
-          </div> : <div></div> }
+          </div><br /></div> : <div></div> }
         <br />
-        {state.checkedE ? <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+        {state.checkedE ?<div> <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
             {props.answers.length && props.answers.map(answers=>(
             <Card 
               title= {answers.title} 
@@ -79,10 +76,11 @@ export default function Main(props) {
               user={props.user}
               type="questions">
             </Card>))}
-          </div> : <div></div> }
+          </div><br /> </div>: <div></div> }
+          <br />
         </container>
-        <div>
-          <FilterButton state={state} setState={setState}/>
+        <div className= "filterButton">
+          <FilterButton state={state} setState={setState} />
         </div>
   
     </div>
