@@ -8,16 +8,16 @@ const theme = createMuiTheme({
   overrides: {
     // Style sheet name ⚛️
     MuiButton: {
-      // Name of the rule
+      
       text: {
-        // Some CSS
+        marginLeft: '600px',
         backgroundColor: '#f3faf0',
         color: '#444545',
         borderColor: '#b5ffe9',
         borderRadius: 6,
         border: 6,
-        height: 48,
-        padding: '0 30px',
+        height: 30,
+        padding: '0 20px',
       },
     },
   },

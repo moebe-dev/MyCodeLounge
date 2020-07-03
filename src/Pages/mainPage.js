@@ -1,17 +1,23 @@
 import React from "react";
-import SvgIconsSize from "../components/layout/icon";
-import CustomizedInputBase from "../components/layout/search/search";
-import BasicButtonGroup from "../components/layout/buttons/tRButtons";
-import CarouseBanner from "../components/layout/carousel/carousel";
-import FilterButton from "../components/layout/buttons/filterButton";
-import LeftSideButton from "../components/layout/buttons/leftSidebutton";
-import Card from "../components/layout/cards/cards";
-import LoginButton from "../components/layout/buttons/LoginButton"
-import { useAuth0 } from "../react-auth0-spa";
-import { PropTypes } from "mobx-react";
-import ButtonAppBar from '../components/layout/navbar/NavBar'
+import CarouseBanner from "../Components/layout/carousel/carousel";
+import FilterButton from "../Components/layout/buttons/filterButton";
+import LeftSideButton from "../Components/layout/buttons/leftSidebutton";
+import Card from "../Components/layout/cards/cards";
+import "../Components/layout/cards/cards.css"
+import "../Pages/mainPage.css"
+
+
 
 export default function Main(props) {
+  const [state, setState] = React.useState({
+    checkedA: true,  // Youtube
+    checkedB: true,  // Google Books
+    checkedC: true,  // Udemy
+    checkedD: true,  // W3 Schools
+    checkedE: true,  // Stack Overflow
+    checkedF: true,  // Unused
+  });
+
   console.log(props);
   return (
       <React.Fragment>
@@ -20,19 +26,61 @@ export default function Main(props) {
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <LeftSideButton />
+          <LeftSideButton getQueryTopic={props.getQueryTopic}/>
         </div>
-        {/* <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <container>
+        <br />
+        {state.checkedA ?<div> <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length && props.videos.map(video=>(
             <Card 
               title= {video.title} 
               link= {video.link} 
               image= {video.image} 
-              description= {video.description}>
+              description= {video.description}
+              user={props.user}
+              type="videos">
             </Card>))}
-        </div> */}
+          </div> <br /></div>: <div></div> }
+        <br />
+        {state.checkedB ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+            {props.books.length && props.books.map(books=>(
+            <Card 
+              title= {books.title} 
+              link= {books.link} 
+              image= {books.image} 
+              description= {books.description}
+              user={props.user}
+              type="books">
+            </Card>))}
+          </div><br /> </div>: <div></div> }
+        <br />
+        {state.checkedC ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+            {props.courses.length && props.courses.map(courses=>(
+            <Card 
+              title= {courses.title} 
+              link= {courses.link} 
+              image= {courses.image} 
+              description= {courses.description}
+              user={props.user}
+              type="courses">
+            </Card>))}
+          </div><br /></div> : <div></div> }
+        <br />
+        {state.checkedE ?<div> <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+            {props.answers.length && props.answers.map(answers=>(
+            <Card 
+              title= {answers.title} 
+              link= {answers.link} 
+              image= {answers.image} 
+              description= {answers.description}
+              user={props.user}
+              type="questions">
+            </Card>))}
+          </div><br /> </div>: <div></div> }
+          <br />
+        </container>
         <div>
-          <FilterButton></FilterButton>
+          <FilterButton state={state} setState={setState}/>
         </div>
   
     </div>

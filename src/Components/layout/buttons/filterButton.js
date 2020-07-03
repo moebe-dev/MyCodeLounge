@@ -16,21 +16,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Switches() {
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-    checkedC: true,
-    checkedD: true,
-    checkedE: true,
-  });
+export default function Switches(props) {
+  let { state, setState } = props
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
   return (
-    <Typography >
+    <Typography  style= {{display: 'flex', flexDirection: 'column'}}>
       <div style= {{display: 'flex', justifyContent: 'flex-end'}}>YouTube
       <Switch
         checked={state.checkedA}
@@ -39,7 +33,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Google Books
       <Switch
         checked={state.checkedB}
         onChange={handleChange}
@@ -47,7 +41,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Google Books
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Udemy
       <Switch
         checked={state.checkedC}
         onChange={handleChange}
@@ -55,7 +49,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Udemy
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
       <Switch
         checked={state.checkedD}
         onChange={handleChange}
@@ -63,7 +57,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Pixabay
+      <div style= {{display: 'flex', justifyContent: 'flex-end'}}>Stack Overflow
       <Switch
         checked={state.checkedE}
         onChange={handleChange}
@@ -71,6 +65,7 @@ export default function Switches() {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
+      
     </Typography>
   );
 }
