@@ -67,7 +67,7 @@ export default function Main(props) {
           </div><br /></div> : <div></div> }
         <br />
         {state.checkedE ?<div> <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
-            {props.answers.length && props.answers.map(answers=>(
+            {props.answers.length !== 0 && props.answers.map(answers=>(
             <Card 
               title= {answers.title} 
               link= {answers.link} 
@@ -76,7 +76,7 @@ export default function Main(props) {
               user={props.user}
               type="questions">
             </Card>))}
-          </div><br /> </div>: <div></div> }
+          </div><br /> </div>: <div hidden></div> }
           <br />
         </container>
         <div>
