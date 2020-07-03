@@ -31,7 +31,7 @@ export default function Main(props) {
         <container>
         <br />
         {state.checkedA ?<div> <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
-            {props.videos.length && props.videos.map(video=>(
+            {props.videos.length !== 0 && props.videos.map(video=>(
             <Card 
               title= {video.title} 
               link= {video.link} 
@@ -41,9 +41,8 @@ export default function Main(props) {
               type="videos">
             </Card>))}
           </div> <br /></div>: <div></div> }
-        <br />
         {state.checkedB ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
-            {props.books.length && props.books.map(books=>(
+            {props.books.length !== 0 && props.books.map(books=>(
             <Card 
               title= {books.title} 
               link= {books.link} 
@@ -53,9 +52,8 @@ export default function Main(props) {
               type="books">
             </Card>))}
           </div><br /> </div>: <div></div> }
-        <br />
         {state.checkedC ? <div><div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
-            {props.courses.length && props.courses.map(courses=>(
+            {props.courses.length !== 0 && props.courses.map(courses=>(
             <Card 
               title= {courses.title} 
               link= {courses.link} 
@@ -65,7 +63,6 @@ export default function Main(props) {
               type="courses">
             </Card>))}
           </div><br /></div> : <div></div> }
-        <br />
         {state.checkedE ?<div> <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
             {props.answers.length !== 0 && props.answers.map(answers=>(
             <Card 
