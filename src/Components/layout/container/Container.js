@@ -4,72 +4,71 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { makeStyles, createStyles, withStyles } from "@material-ui/core/styles";
-import Dev from "../../../assets/images/introImage";
 import { autorun } from "mobx";
-import Grid from "@material-ui/core/Grid";
-
+import Image from "./introimg.jpeg";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      textAlign: "center",
-      marginTop: 200,
-      backgroundColor: "#000000",
+      textAlign: "left",
+      width: "100%",
+      height: "500",
       padding: 50,
+      marginTop: 200, 
     },
     header: {
       backgroundColor: "#ffffff",
       fontSize: "3rem",
       color: "#00c2cb",
-      textAlign: "center",
+      textAlign: "left",
+      padding: 20,
     },
     title: {
       color: "#00c2cb",
       fontSize: "3rem",
-      margin: 50,
+      margin: 10,
     },
     subtitle: {
       color: "#ffffff",
-      marginBottom: 20,
+      margin: 40,
       padding: 20,
       fontSize: 20,
       
     },
   })
 );
+const styles={
 
+  Container: {
+  backgroundImage: `url(${Image})`,
+  backgroundSize: 'cover', 
+  }
+
+}
 export default function container() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const classes = useStyles();
+  
   // eslint-disable-next-line react-hooks/rules-of-hooks
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <Grid
-        Container
-        zeroMinWidth
-        alignContent="space-around"
-        disableGutters
-      >
+      <Container
+          maxWidth="xl"
+          direction="row"
+          disableGutters
+          style={styles.Container}
+        >
         <Typography
           className={classes.root}
         >
-          <Grid item xs={12} md={8} lg={6} zeroMinWidth>
             <Typography className={classes.title}>
               Looking for a change of pace?
             </Typography>
-          </Grid>
         </Typography>
-        <Grid
-          Container
-          direction="row"
-          justify="space-between"
-          alignItems="stretch"
-          disableGutters
-          zeroMinWidth	
-        >
-          <Grid item xs={12} md={8} lg={6}>
-            <Dev /> <Typography className={classes.subtitle} zeroMinWidth>
+        
+         
+          <Typography className={classes.subtitle} >
               We are here to help!
               <br />
               From a simple youtube video to a full course from some of the most
@@ -78,13 +77,12 @@ export default function container() {
               Developed by Bootcamp grads, these resources helped us get through
               our class, and still have plenty of resources to keep learning!
             </Typography>
-          </Grid>
-        </Grid>
+
 
         <Typography className={classes.header} gutterBottom>
           Topics we focus on
         </Typography>
-      </Grid>
+        </Container>
     </React.Fragment>
   );
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import dev from "./undraw3.svg";
+import "./introimg.jpg";
 
 
 
 
 function Logo () {
 
-    return <img src={dev} alt="logo" />
+    return <img src={Image} alt="logo" />
 }
 
 export default Logo;
