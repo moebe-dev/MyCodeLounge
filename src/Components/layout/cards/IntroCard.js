@@ -17,19 +17,18 @@ const useStyles = makeStyles({
   },
   Card: {
     margin: 50, 
-    height: "450px",
-    background: "linear-gradient(45deg, #494947 10%, #000000 90%)",
-    border: "1px solid #00c2cb",
-    borderRadius: 10,
+    height: "500px",
+    background: "linear-gradient(45deg, #494947 5%, #151514 90%)",
+    borderRadius: 20,
     margin: "0 auto",
     
   },
   Box :{
-    color: "#ebfaff",
+    color: "#F5F5F5",
 
   },
   title: {
-    color: "#00c2cb"
+    color: "#f6a2ab"
   }
 });
 
@@ -37,7 +36,7 @@ const CardBoxes = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
     <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
         <Card className={classes.Card} >
         <CardActionArea >
@@ -66,6 +65,7 @@ const CardBoxes = () => {
       <Card className={classes.Card}>
         <CardActionArea>
           <CardMedia
+            
             component="img"
             alt="HTML"
             image="https://cdn.lynda.com/course/439683/439683-637286184374750281-16x9.jpg"

@@ -9,25 +9,30 @@ import Image from "./introimg.jpeg";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      textAlign: "left",
+      textAlign: "center",
       width: "100%",
       height: "500",
       padding: 50,
       marginTop: 200, 
+      borderTop: "2px solid #00c2cb"
     },
     header: {
-      backgroundColor: "#ffffff",
+      backgroundColor: "#00c2cb",
       fontSize: "3rem",
-      color: "#00c2cb",
-      textAlign: "left",
-      padding: 20,
+      color: "#white",
+      textAlign: "center",
+      padding: 23,
+      borderTop: "2px solid #00c2cb",
+      borderBottom: "2px solid #00c2cb"
     },
     title: {
-      color: "#00c2cb",
+      color: "#7770FF",
       fontSize: "3rem",
       margin: 10,
+      
     },
     subtitle: {
+      textAlign: "center",
       color: "#ffffff",
       margin: 40,
       padding: 20,
@@ -63,7 +68,7 @@ export default function container() {
           className={classes.root}
         >
             <Typography className={classes.title}>
-              Looking for a change of pace?
+              LOOKING FOR A CHANGE OF PACE?
             </Typography>
         </Typography>
         
@@ -80,7 +85,7 @@ export default function container() {
 
 
         <Typography className={classes.header} gutterBottom>
-          Topics we focus on
+          AREAS OF FOCUS..
         </Typography>
         </Container>
     </React.Fragment>

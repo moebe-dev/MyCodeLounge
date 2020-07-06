@@ -23,7 +23,7 @@ const onRedirectCallback = appState => {
 const theme = createMuiTheme({
   palette: {
     background: {
-      default: "#494949",
+      default: "#000000",
       fontFamily: "Questrial, sans-serif",
     }
   }
