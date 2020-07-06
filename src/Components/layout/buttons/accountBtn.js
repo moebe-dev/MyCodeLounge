@@ -2,8 +2,24 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+
+
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    margin: {
+      margin: theme.spacing(1),
+    },
+    extendedIcon: {
+      marginLeft: theme.spacing(1),
+    },
+  }),
+);
 
 export default function SimpleMenu() {
+
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -15,8 +31,9 @@ export default function SimpleMenu() {
   };
 
   return (
+  
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{backgroundColor: '#E0F0F0'}}>
+      <Button variant="outlined" size="medium" color="inherit" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Account
       </Button>
       <Menu

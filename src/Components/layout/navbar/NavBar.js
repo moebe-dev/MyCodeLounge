@@ -1,43 +1,74 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import LoginButton from '../buttons/LoginButton';
-import CustomizedInputBase from '../search/search';
-import Logo from '../../../assets/Logos/Logo';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import AccountBtn from '../buttons/accountBtn';
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import LoginButton from "../buttons/LoginButton";
+import CustomizedInputBase from "../search/search";
+import Logo from "../../../assets/Logos/Logo";
+import AccountBtn from "../buttons/accountBtn";
+import { useAuth0 } from "../../../react-auth0-spa";
+import Button from "@material-ui/core/Button";
+import { findByLabelText } from "@testing-library/react";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 
-
-const theme = createMuiTheme({
-  overrides: {
-    MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: '#1C1E1E',
-      },
-    },
-    
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
   },
-});
+}));
 
 export default function ButtonAppBar(props) {
-
-
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-      <AppBar  postition= "static" disableGutters>
-        <Toolbar>
-          <Typography variant="h6">
-            <Logo edge= "start"/>
-          </Typography>
-          <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
-          <LoginButton />
-          <AccountBtn/>
-        </Toolbar>
-      </AppBar>
-      </div>
-    </ThemeProvider>
+    <div className={classes.root}>
+      <Grid
+        container
+        direction="row"
+        justify="space-evenly"
+        alignItems="baseline"
+        spacing={3}
+      >
+        <AppBar
+          postition="fixed"
+          direction="row"
+          justify="space-between"
+          disableGutters
+        >
+          <Toolbar>
+            <Logo />
+
+            <div>
+              {!isAuthenticated && (
+                <Button
+                  variant="outlined"
+                  size="medium"
+                  color="inherit"
+                  onClick={() => loginWithRedirect({})}
+                >
+                  Log in
+                </Button>
+              )}
+
+              {isAuthenticated && (
+                  <CustomizedInputBase
+                    getQueryTopic={props.getQueryTopic}
+                    maxWidth="300px"
+                  />
+                ) && <AccountBtn /> && (
+                  <Button
+                    variant="outlined"
+                    size="medium"
+                    color="inherit"
+                    onClick={() => logout()}
+                  >
+                    <p>{user ? <p>{user.name}</p> : <div></div>}</p>
+                  </Button>
+                )}
+            </div>
+          </Toolbar>
+        </AppBar>
+      </Grid>
+    </div>
   );
 }
