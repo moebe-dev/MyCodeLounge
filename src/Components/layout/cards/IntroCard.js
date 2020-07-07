@@ -73,7 +73,7 @@ const CardBoxes = () => {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h3">
-              <Box className={classes.title} letterSpacing={3} m={1} textAlign="center" fontSize={32}>
+              <Box className={classes.title} letterSpacing={4} m={1} textAlign="center" fontSize={32}>
                 CSS
               </Box>
             </Typography>

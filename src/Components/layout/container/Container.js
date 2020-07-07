@@ -14,19 +14,19 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "500",
       padding: 50,
       marginTop: 200, 
-      borderTop: "2px solid #00c2cb"
+
     },
     header: {
-      backgroundColor: "#00c2cb",
-      fontSize: "3rem",
-      color: "#white",
+      background: "linear-gradient(45deg, #494947 5%, #151514 90%)",
+      fontSize: "4rem",
+      fontWeight: 100,
+      color: "#f6a2ab",
       textAlign: "center",
       padding: 23,
-      borderTop: "2px solid #00c2cb",
-      borderBottom: "2px solid #00c2cb"
+
     },
     title: {
-      color: "#7770FF",
+      color: "#f6a2ab",
       fontSize: "3rem",
       margin: 10,
       

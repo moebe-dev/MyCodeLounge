@@ -24,7 +24,6 @@ const theme = createMuiTheme({
   palette: {
     background: {
       default: "#000000",
-      fontFamily: "Questrial, sans-serif",
     }
   }
 });
