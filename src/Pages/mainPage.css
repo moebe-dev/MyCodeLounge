@@ -1,3 +1,13 @@
 .MuiCardMedia-root{
     background-size: contain !important;
 }
+
+.filterButton{
+    position: fixed;
+    right:0;
+    top: 65%;
+    color: #FFFFFF;
+}
+container{
+    margin-right: 200px;
+}

@@ -27,8 +27,12 @@ const useStyles = makeStyles((theme) => ({
     // position: "relative",
   },
   title:{
+    height: '25%',
     color: "red",
-    height: "20%",
+    fontSize: '.85rem',
+    textDecoration: "none",
+    
+    
   },
   media: {
     height: "50%",
@@ -38,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     height: "50%"
   },
   actions:{
+    height:'25%',
 // position:"absolute",
 // bottom: 0,
 // width: "100%",
@@ -64,7 +69,8 @@ overflow: "auto"
 export default function MainCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  //set initial state based on if user saved
+  const [favorite, setFavorite] = React.useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
@@ -77,7 +83,9 @@ export default function MainCard(props) {
       image: image,
       link: link
     }
-    API.saveToUser(user, type, data)
+    API.saveToUser(user, type, data).then(()=>{
+      setFavorite(!favorite)
+    })
        .catch(err => console.log(err));
   }
 
@@ -93,7 +101,7 @@ export default function MainCard(props) {
       
       <CardActions className= {classes.actions} disableSpacing>
         
-        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)}> 
+        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)} style={favorite ? {color: "#F01202" }:{color: "#000000"}}> 
           <FavoriteIcon />
         </IconButton>
         

@@ -10,7 +10,7 @@ const theme = createMuiTheme({
     MuiButton: {
       
       text: {
-        marginLeft: '600px',
+        display:'flex',
         backgroundColor: '#f3faf0',
         color: '#444545',
         borderColor: '#b5ffe9',
@@ -33,13 +33,13 @@ export default function LoginButton() {
     <ThemeProvider theme={theme}>
     <div>
       {!isAuthenticated && (
-        <Button onClick={() => loginWithRedirect({})}>
+        <Button className= "Login" onClick={() => loginWithRedirect({})}>
           Log in
         </Button>
       )}
 
       {isAuthenticated && (
-        <Button onClick={() => logout()}>
+        <Button >
           <p>{user ? <p>{user.name}</p> : <div></div>}</p>
         </Button>
       )}
