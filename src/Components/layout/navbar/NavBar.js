@@ -1,45 +1,68 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import LoginButton from '../buttons/LoginButton';
-import CustomizedInputBase from '../search/search';
-import Logo from '../../../assets/Logos/Logo';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-import AccountBtn from '../buttons/accountBtn';
-import ResourceBtn from '../buttons/resourceBtn';
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import LoginButton from "../buttons/LoginButton";
+import CustomizedInputBase from "../search/search";
+import Logo from "../../../assets/Logos/Logo";
+import AccountBtn from "../buttons/accountBtn";
+import { useAuth0 } from "../../../react-auth0-spa";
+import Button from "@material-ui/core/Button";
+import { findByLabelText } from "@testing-library/react";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 import {Link} from 'react-router-dom';
+import ResourceBtn from '../buttons/resourceBtn';
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiAppBar: {
-      colorPrimary: {
-        backgroundColor: '#1C1E1E',
-      },
-    },
-    
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: "#00c2cb",
   },
-});
+
+}));
 
 export default function ButtonAppBar(props) {
-
-
+  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const classes = useStyles();
   return (
-    <ThemeProvider theme={theme}>
-      <div>
-      <AppBar  postition= "fixed" disableGutters>
-        <Toolbar>
-          <Typography variant="h6">
-            <Link to = "/"><Logo edge= "start"/></Link>
-          </Typography>
-          <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
-          <ResourceBtn/>
-          <LoginButton />
-          <AccountBtn/>
-        </Toolbar>
-      </AppBar>
-      </div>
-    </ThemeProvider>
+    <div className={classes.root}>
+        <AppBar
+          postition="static"
+          disableGutters
+        >
+          <Toolbar>
+            <Logo />
+
+            <div>
+              {!isAuthenticated && (
+                <Button
+                  variant="outlined"
+                  size="medium"
+                  color="inherit"
+                  onClick={() => loginWithRedirect({})}
+                >
+                  Log in
+                </Button>
+              )}
+
+              {isAuthenticated && (
+                  <CustomizedInputBase
+                    getQueryTopic={props.getQueryTopic}
+                    maxWidth="300px"
+                  />
+                ) && <AccountBtn /> && (
+                  <Button
+                    variant="outlined"
+                    size="medium"
+                    color="inherit"
+                    onClick={() => logout()}
+                  >
+                    <p>{user ? <p>{user.name}</p> : <div></div>}</p>
+                  </Button>
+                )}
+            </div>
+          </Toolbar>
+        </AppBar>
+    </div>
   );
 }

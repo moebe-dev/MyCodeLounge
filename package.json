@@ -26,6 +26,7 @@
     "mobx-react": "^6.2.2",
     "mongoose": "^5.9.19",
     "react": "^16.13.1",
+    "react-adaptive-image": "^1.8.0",
     "react-dom": "^16.13.1",
     "react-material-ui-carousel": "^1.6.0",
     "react-player": "^2.4.0",

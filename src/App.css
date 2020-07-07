@@ -1,6 +1,10 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,200;1,300&display=swap');
+
+
 body, html, #root, .app, .container {
   width: 100%;
   height: 100%;
+  
 }
 
 h1 {
@@ -57,4 +61,4 @@ h1 {
   border-radius: 4px;
   background: white;
   cursor: pointer;
-}
+} */

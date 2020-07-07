@@ -17,7 +17,7 @@ const theme = createMuiTheme({
         borderRadius: 6,
         border: 6,
         height: 30,
-        padding: '0 20px',
+        padding: 15,
       },
     },
   },
@@ -33,13 +33,13 @@ export default function LoginButton() {
     <ThemeProvider theme={theme}>
     <div>
       {!isAuthenticated && (
-        <Button className= "Login" onClick={() => loginWithRedirect({})}>
+        <Button variant="outlined" size="medium" color="inherit" onClick={() => loginWithRedirect({})}>
           Log in
         </Button>
       )}
 
       {isAuthenticated && (
-        <Button >
+        <Button  variant="outlined" size="medium" color="inherit" onClick={() => logout()}>
           <p>{user ? <p>{user.name}</p> : <div></div>}</p>
         </Button>
       )}

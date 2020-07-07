@@ -7,6 +7,7 @@ import config from "./auth_config.json";
 import history from "./utils/history";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import "./index.css";
 
 // A function that routes the user to the right place
 // after login
@@ -22,7 +23,7 @@ const onRedirectCallback = appState => {
 const theme = createMuiTheme({
   palette: {
     background: {
-      default: "#494949"
+      default: "#000000",
     }
   }
 });
