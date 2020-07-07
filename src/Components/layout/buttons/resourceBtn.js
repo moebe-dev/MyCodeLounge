@@ -10,7 +10,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-const options = ['Pixabay', 'Front-end Cheat Sheets', 'Back-end Cheat Sheets'];
+const options = ['Pixabay', 'HTML Cheat Sheets', 'CSS Cheat Sheets', 'JQuery Cheat Sheets', 'JavaScript Cheat Sheets'];
 
 export default function SplitButton() {
   const [open, setOpen] = React.useState(false);
@@ -43,7 +43,7 @@ export default function SplitButton() {
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
         <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
-          <Button onClick={handleClick}>{options[selectedIndex]}</Button>
+          <Button onClick={handleClick}>Resources</Button>
           <Button
             color="primary"
             size="small"
@@ -73,7 +73,11 @@ export default function SplitButton() {
                         selected={index === selectedIndex}
                         onClick={(event) => handleMenuItemClick(event, index)}
                       >
-                        {option}
+                        <Button href= {option === "Pixabay" ? "https://pixabay.com":
+                        option === "HTML Cheat Sheets" ? "https://htmlcheatsheet.com/":
+                        option === "CSS Cheat Sheets" ? "https://htmlcheatsheet.com/css/":
+                        option === "JQuery Cheat Sheets" ? "https://htmlcheatsheet.com/jquery/":
+                      "https://htmlcheatsheet.com/js/"}>{option}</Button>
                       </MenuItem>
                     ))}
                   </MenuList>
