@@ -3,12 +3,23 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useAuth0 } from "../../../react-auth0-spa";
+import { makeStyles } from "@material-ui/core/styles";
 
-
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "#01b4bc",
+    color: "#ffffff",
+    margin: 10, 
+    padding: 10,
+    fontSize: "1.4rem",
+    borderRadius: 5
+  }
+})
 
 
 
 export default function SimpleMenu() {
+  const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const {logout} = useAuth0();
@@ -24,7 +35,7 @@ export default function SimpleMenu() {
   return (
   
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{backgroundColor: '#FFFFFF', height:30, marginLeft:10}}>
+      <Button className={classes.root} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} >
         Account
       </Button>
       <Menu
