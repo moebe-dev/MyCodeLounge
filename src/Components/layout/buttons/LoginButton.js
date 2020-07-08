@@ -16,7 +16,7 @@ import MenuList from '@material-ui/core/MenuList';
 
 
 
-export default function LoginButton() {
+export default function LoginButton(props) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   const options = ['My Favorites', 'Logout', 'Contact Us'];
@@ -43,6 +43,11 @@ export default function LoginButton() {
 
     setOpen(false);
   };
+
+  const handleFavoriteClicked = () => {
+    props.getFavClicked();
+  }
+
   const theme = createMuiTheme({
     overrides: {
       // Style sheet name ⚛️
@@ -109,10 +114,13 @@ export default function LoginButton() {
                         selected={index === selectedIndex}
                         onClick={(event) => handleMenuItemClick(event, index)}
                       >
-                        <Button href= {
-                        option === "My Favorites" ? "":
+                        <Button href={
+                        option === "My Favorites" ? "#":
                         option === "Logout" ? {handleClose}:
-                      "Contact Us"}>{option}</Button>
+                        option === "Contact Us" ? "#" : 
+                        "#"}
+                        onClick={option === "My Favorites" ? handleFavoriteClicked : option === "logout" ? loginWithRedirect : false}
+                        >{option}</Button>
                       </MenuItem>
                     ))}
                   </MenuList>

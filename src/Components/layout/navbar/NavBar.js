@@ -37,7 +37,7 @@ export default function ButtonAppBar(props) {
           <ResourceBtn />
 </>) : <></>
 }
-<LoginButton />
+<LoginButton getFavClicked={props.getFavClicked}/>
         </Toolbar>
       </AppBar>
       </div>

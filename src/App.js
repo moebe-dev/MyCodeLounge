@@ -33,6 +33,16 @@ function App () {
       .then(res => setCourses([...res.data]));
   }
 
+  const getFavClicked = () => {
+    API.queryAllUserData(user.email)
+       .then(res => {
+         res.data.answers ? setAnswers([...res.data.answers]) : setAnswers([])
+         res.data.videos ? setVideos([...res.data.videos]) : setVideos([])
+         res.data.books ? setBooks([...res.data.books]) : setBooks([])
+         res.data.courses ? setCourses([...res.data.courses]) : setCourses([])
+       })
+  }
+
     // this is similar method to componentDidMount for classes
     useEffect(() => {
       API.getYoutubeVideos()
@@ -56,13 +66,12 @@ function App () {
     </Router>
     )}
 
-  console.log(videos)
   return (
     <StylesProvider injectFirst>
     <div className="App">
       <Router history={history}>
         <header>
-          <ButtonAppBar getQueryTopic={getQueryTopic}/>
+          <ButtonAppBar getQueryTopic={getQueryTopic} getFavClicked={getFavClicked}/>
         </header>
         <br />
         <br />
