@@ -13,24 +13,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 
-const theme = createMuiTheme({
-  overrides: {
-    // Style sheet name ⚛️
-    MuiButton: {
-      
-      text: {
-        display:'flex',
-        backgroundColor: '#f3faf0',
-        color: '#444545',
-        borderColor: '#b5ffe9',
-        borderRadius: 6,
-        border: 6,
-        height: 30,
-        padding: 15,
-      },
-    },
-  },
-});
+
 
 
 export default function LoginButton() {
@@ -71,7 +54,7 @@ export default function LoginButton() {
           color: '#444545',
           borderColor: '#b5ffe9',
           borderRadius: 6,
-          border: 6,
+          // border: 6,
           height: 30,
           padding: 15,
         },
@@ -96,14 +79,13 @@ export default function LoginButton() {
         </Button>
       
           <Button
-            color="primary"
+            // color="primary"
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
-            onClick={handleToggle}
-          >
+            onClick={handleToggle}>
             <ArrowDropDownIcon />
             
           </Button>

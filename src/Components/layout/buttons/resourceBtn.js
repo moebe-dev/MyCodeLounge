@@ -46,7 +46,7 @@ export default function SplitButton() {
           <Button onClick={handleClick}>Resources</Button>
           <Button
             color="primary"
-            size="small"
+            size="large"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select merge strategy"
