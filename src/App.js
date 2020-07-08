@@ -17,6 +17,7 @@ function App () {
   const [books, setBooks] = useState([]);
   const [courses, setCourses] = useState([]);
   const [answers, setAnswers] = useState([]);
+  const [news, setNews] = useState([]);
   const [favPage, setFavPage] = useState(false);
   const { loading, user, isAuthenticated } = useAuth0();
 
@@ -42,7 +43,7 @@ function App () {
   const getFavClicked = () => {
     API.queryAllUserData(user.email)
        .then(res => {
-         res.data.answers ? setAnswers([...res.data.answers]) : setAnswers([])
+         res.data.questions ? setAnswers([...res.data.questions]) : setAnswers([])
          res.data.videos ? setVideos([...res.data.videos]) : setVideos([])
          res.data.books ? setBooks([...res.data.books]) : setBooks([])
          res.data.courses ? setCourses([...res.data.courses]) : setCourses([])
@@ -90,7 +91,7 @@ function App () {
             tCourses.splice(index, 1);
             setCourses(tCourses);
             break;
-          case "answers":
+          case "questions":
             let tAnswers = [...answers];
             tAnswers.splice(index, 1);
             setAnswers(tAnswers);
@@ -113,6 +114,11 @@ function App () {
 
       API.getUdemyCourses()
       .then(res => setCourses([...res.data]));
+
+      API.getGoogleNews()
+         .then(res => {
+           setNews([...res.data])
+         });
 
     }, []);
 
@@ -146,6 +152,7 @@ function App () {
           books={books} 
           courses={courses} 
           answers={answers}
+          news={news}
           user={user.email}
           getQueryTopic={getQueryTopic}
           handleAddOrRemove={handleAddOrRemove}
