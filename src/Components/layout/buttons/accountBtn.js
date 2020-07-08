@@ -45,9 +45,9 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>My Favorites</MenuItem>
+        <MenuItem onClick={""}>My Favorites</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
-        <MenuItem onClick={handleClose}>Contact Us</MenuItem>
+        <MenuItem onClick={""}>Contact Us</MenuItem>
       </Menu>
     </div>
   );

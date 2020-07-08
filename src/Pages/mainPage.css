@@ -5,11 +5,19 @@
 .filterButton{
     position: fixed;
     right:0;
-    top: 65%;
+    top: 60%;
     color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    
     
 
 }
 container{
-    margin-right: 200px;
+   
+    margin-right: 260px;
 }
+
+/* .LeftSideButton{
+    position: fixed;
+} */

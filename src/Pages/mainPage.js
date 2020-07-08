@@ -25,12 +25,12 @@ export default function Main(props) {
       
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div>
+        <div className='LeftSideButton'>
           <LeftSideButton getQueryTopic={props.getQueryTopic}/>
         </div>
         <container>
         <br />
-        {state.checkedA ?<div style={{color: 'white'}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
+        {state.checkedA ?<div style={{color: 'white',fontSize: '20px'}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length !== 0 && props.videos.map(video=>(
             <Card 
               title= {video.title} 
@@ -42,7 +42,7 @@ export default function Main(props) {
             </Card>))}
           </div> <br /></div>: <div></div> }
         
-        {state.checkedB ? <div style={{color: 'white'}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedB ? <div style={{color: 'white',fontSize: '20px'}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.books.length !== 0 && props.books.map(books=>(
             <Card 
               title= {books.title} 
@@ -54,7 +54,7 @@ export default function Main(props) {
             </Card>))}
           </div><br /> </div>: <div></div> }
         
-        {state.checkedC ? <div style={{color: 'white'}}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedC ? <div style={{color: 'white',fontSize: '20px'}}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.courses.length !== 0 && props.courses.map(courses=>(
             <Card 
               title= {courses.title} 
@@ -65,8 +65,10 @@ export default function Main(props) {
               type="courses">
             </Card>))}
           </div><br /></div> : <div></div> }
-        {state.checkedE ?<div> <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
-            {props.answers.length !== 0 && props.answers.map(answers=>(
+        {state.checkedE ?<div>{props.answers.length !== 0 ? <div style={{color: 'white',fontSize: '20px'}}> StackOverflow</div>:<div hidden></div> } 
+          <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+            
+            {props.answers.length !== 0 && props.answers.map(answers=>( 
             <Card 
               title= {answers.title} 
               link= {answers.link} 
@@ -75,10 +77,11 @@ export default function Main(props) {
               user={props.user}
               type="questions">
             </Card>))}
+            
           </div><br /> </div>: <div hidden></div> }
           <br />
         </container>
-        <div className= "filterButton">
+        <div className= "filterButton" >
           <FilterButton state={state} setState={setState} />
         </div>
   

@@ -31,7 +31,6 @@ export default function ButtonAppBar(props) {
           <CustomizedInputBase getQueryTopic={props.getQueryTopic} maxWidth="300px"/>
           <ResourceBtn/>
           <LoginButton />
-          <AccountBtn/>
         </Toolbar>
       </AppBar>
       </div>
