@@ -46,6 +46,5 @@ module.exports = {
       res.json(dbItem)
     })
     .catch(err => console.log(err));
-    console.log(req.body)
   }
 };

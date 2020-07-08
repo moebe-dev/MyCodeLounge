@@ -31,6 +31,16 @@ export default {
         return axios.get("/api/googlebooks/getbooks", {params: { topic: topic }});
     },
 
+    getGoogleNews: function(topic=null) {
+        // return 5 google news articles with title, link, description, image
+        // if no topic provided, will default to "web development"
+
+        // USAGE:
+            // API.getGoogleNews().then(res => setNews([...res.data]))
+            // API.getGoogleNews("topic").then(res => setNews([...res.data]))
+        return axios.get("/api/googlenews/getnews", { params: { topic: topic }});
+    },
+
     getUdemyCourses: function(topic=null) {
         // return 5 udemy courses with title, link, description, image and price
         // if no topic provided, will default to "full stack development"

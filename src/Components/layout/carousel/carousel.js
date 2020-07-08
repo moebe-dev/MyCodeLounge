@@ -44,7 +44,7 @@ export default function CarouseBanner(props){
     return (
         <Carousel>
             {
-                items.map( item => <Item item={item} /> )
+                props.news.map( item => <Item item={item} /> )
             }
         </Carousel>
     )
@@ -55,8 +55,10 @@ const classes = useStyles();
     return (
         <div className={classes.root}>
         <Paper elevation={3}>
-            <h2>{props.item.name}</h2>
+            <h2>{props.item.title}</h2>
             <p>{props.item.description}</p>
+            <img src={props.item.image} alt={props.item.title} height="50px" width="50px"></img>
+            <p>{props.item.link}</p>
         </Paper>
         </div>
     )

@@ -21,7 +21,7 @@ export default function Main(props) {
   console.log(props);
   return (
       <React.Fragment>
-        <CarouseBanner />
+        <CarouseBanner news={props.news}/>
       
       {/* row 3 left side buttons, cards, filters */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
