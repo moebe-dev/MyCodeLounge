@@ -75,18 +75,9 @@ export default function MainCard(props) {
     setExpanded(!expanded);
   };
 
-  const saveToUserProfile = (props) => {
-    const { user, type, title, description, image, link } = props;
-    const data = {
-      title: title,
-      description: description,
-      image: image,
-      link: link
-    }
-    API.saveToUser(user, type, data).then(()=>{
-      setFavorite(!favorite)
-    })
-       .catch(err => console.log(err));
+  const handleFavorite = () => {
+    props.handleAddOrRemove(props, favorite);
+    setFavorite(!favorite);
   }
 
   return (
@@ -101,7 +92,10 @@ export default function MainCard(props) {
       
       <CardActions className= {classes.actions} disableSpacing>
         
-        <IconButton aria-label="add to favorites" onClick={() => saveToUserProfile(props)} style={favorite ? {color: "#F01202" }:{color: "#000000"}}> 
+        <IconButton aria-label="add to favorites" 
+          onClick={handleFavorite} 
+          style={favorite || props.favPage ? {color: "#F01202" }:{color: "#000000"}}
+          > 
           <FavoriteIcon />
         </IconButton>
         

@@ -34,7 +34,18 @@ module.exports = {
       .catch(err => console.log(err));
   },
 
-  removeItemFromUser: function (req, res) {
+  removeItem: function (req, res) {
     console.log("removing item from user");
+    // $push is not friendly when the key is a variable - this is the workaround
+    var query = {};
+    query[req.body.type] = { title: req.body.title };
+
+    db.Users.updateOne({ user: req.body.user }, { $pull: query })
+    .then(dbItem => {
+      console.log(dbItem);
+      res.json(dbItem)
+    })
+    .catch(err => console.log(err));
+    console.log(req.body)
   }
 };

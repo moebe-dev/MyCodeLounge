@@ -9,4 +9,7 @@ router.route("/saveorgetitem")
 router.route("/getallitems")
       .get(userController.getAllItems);
 
+router.route("/removeitem")
+      .post(userController.removeItem);
+
 module.exports = router;

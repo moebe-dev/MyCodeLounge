@@ -31,51 +31,63 @@ export default function Main(props) {
         <container>
         <br />
         {state.checkedA ?<div style={{color: 'white',fontSize: '20px'}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
-            {props.videos.length !== 0 && props.videos.map(video=>(
+            {props.videos.length !== 0 && props.videos.map((video, index) =>(
             <Card 
+              index={index}
               title= {video.title} 
               link= {video.link} 
               image= {video.image} 
               description= {video.description}
               user={props.user}
-              type="videos">
+              type="videos"
+              favPage={props.favPage}
+              handleAddOrRemove={props.handleAddOrRemove}>
             </Card>))}
           </div> <br /></div>: <div></div> }
         
         {state.checkedB ? <div style={{color: 'white',fontSize: '20px'}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
-            {props.books.length !== 0 && props.books.map(books=>(
+            {props.books.length !== 0 && props.books.map((books, index)=>(
             <Card 
+              index={index}
               title= {books.title} 
               link= {books.link} 
               image= {books.image} 
               description= {books.description}
               user={props.user}
-              type="books">
+              type="books"
+              favPage={props.favPage}
+              handleAddOrRemove={props.handleAddOrRemove}>
             </Card>))}
           </div><br /> </div>: <div></div> }
         
         {state.checkedC ? <div style={{color: 'white',fontSize: '20px'}}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
-            {props.courses.length !== 0 && props.courses.map(courses=>(
+            {props.courses.length !== 0 && props.courses.map((courses, index) =>(
             <Card 
+              index={index}
               title= {courses.title} 
               link= {courses.link} 
               image= {courses.image} 
               description= {courses.description}
               user={props.user}
-              type="courses">
+              type="courses"
+              favPage={props.favPage}
+              handleAddOrRemove={props.handleAddOrRemove}>
             </Card>))}
           </div><br /></div> : <div></div> }
         {state.checkedE ?<div>{props.answers.length !== 0 ? <div style={{color: 'white',fontSize: '20px'}}> StackOverflow</div>:<div hidden></div> } 
           <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
             
-            {props.answers.length !== 0 && props.answers.map(answers=>( 
+            {props.answers.length !== 0 && props.answers.map((answers, index) =>( 
             <Card 
+              index={index}
               title= {answers.title} 
               link= {answers.link} 
               image= {answers.image} 
               description= {answers.description}
               user={props.user}
-              type="questions">
+              type="questions"
+              favPage={props.favPage}
+              handleAddOrRemove={props.handleAddOrRemove}>
             </Card>))}
             
           </div><br /> </div>: <div hidden></div> }

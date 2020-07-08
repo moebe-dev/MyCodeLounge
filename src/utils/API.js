@@ -70,6 +70,24 @@ export default {
         else throw Error("User, type or data is not valid. Data contains: " + user, type, data);
     },
 
+    removeFromUser: function(user, type, title) {
+        // when a user want to remove a book/video/course/ref/question to their provide, take in user,
+        // type of item and title
+
+        // USAGE:
+            // API.removeFromUser(user, type, title).then(res => console.log(res)))
+                // Where user == user login email, type == ['book', 'video', 'course', 'reference', 'question'], title = title
+                if (user && type && ['books', 'videos', 'courses', 'references', 'questions'].includes(type) && title) {
+                    const dataToRemove = {
+                        user: user,
+                        type: type,
+                        title: title
+                    }
+                    return axios.post("/api/user/removeitem", dataToRemove);
+                }
+                else throw Error("User, type or title is not valid. Data contains: " + user, type, title);
+    },
+
     queryUserData: function(user, type) {
         // when a user want to query a book/video/course/ref/question saved to their profile, take in user
         // and type of item and return array of objects containing items.
