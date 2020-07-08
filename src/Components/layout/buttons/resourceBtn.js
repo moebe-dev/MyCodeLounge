@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import "./resouceBtn.css"
 
 const options = ['Pixabay', 'HTML Cheat Sheets', 'CSS Cheat Sheets', 'JQuery Cheat Sheets', 'JavaScript Cheat Sheets'];
 
@@ -42,10 +43,10 @@ export default function SplitButton() {
     
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
-          <Button onClick={handleClick}>Resources</Button>
-          <Button
-            color="primary"
+        <ButtonGroup  variant="contained"  ref={anchorRef} aria-label="split button">
+          <Button className= "ResourcesBtn" onClick={handleClick}>Resources</Button>
+          <Button className= "ResourcesBtn2" 
+            // color="primary"
             size="large"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}

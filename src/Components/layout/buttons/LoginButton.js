@@ -19,13 +19,11 @@ import MenuList from '@material-ui/core/MenuList';
 export default function LoginButton(props) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
-  const options = ['My Favorites', 'Logout', 'Contact Us'];
+  const options = ['My Favorites', 'Contact Us','Logout' ];
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(1);
-  const handleClick = () => {
-    console.info(`You clicked ${options[selectedIndex]}`);
-  };
+  
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -38,6 +36,7 @@ export default function LoginButton(props) {
 
   const handleClose = (event) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      logout();
       return;
     }
 
@@ -51,18 +50,17 @@ export default function LoginButton(props) {
   const theme = createMuiTheme({
     overrides: {
       // Style sheet name ⚛️
-      MuiButton: {
-        
-        text: {
-          display:'flex',
-          backgroundColor: '#f3faf0',
-          color: '#444545',
-          borderColor: '#b5ffe9',
-          borderRadius: 6,
-          // border: 6,
-          height: 30,
-          padding: 15,
-        },
+      MuiButton: { 
+        // text: {
+        //   display:'flex',
+        //   backgroundColor: '#f3faf0',
+        //   color: '#444545',
+        //   borderColor: '#b5ffe9',
+        //   borderRadius: 6,
+        //   border: 6,
+        //   height: 20,
+        //   padding: 15,
+        // },
       },
     },
   });
@@ -79,13 +77,13 @@ export default function LoginButton(props) {
       )}
       {isAuthenticated ? (
         <>
-        <Button>
+        <Button style={{maxHeight: '40px'}} variant="outlined" size="medium" color="inherit">
           <p>{user ? <p>{user.name}</p> : <div></div>}</p>
         </Button>
       
-          <Button
+          <Button style={{maxHeight: '40px'}} variant="outlined" size="medium" color="inherit"
             // color="primary"
-            size="small"
+            // size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select merge strategy"
@@ -116,8 +114,8 @@ export default function LoginButton(props) {
                       >
                         <Button href={
                         option === "My Favorites" ? "#":
-                        option === "Logout" ? {handleClose}:
                         option === "Contact Us" ? "#" : 
+                        option === "Logout" ? {handleClose}:
                         "#"}
                         onClick={option === "My Favorites" ? handleFavoriteClicked : option === "logout" ? loginWithRedirect : false}
                         >{option}</Button>
