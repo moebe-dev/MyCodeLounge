@@ -1,15 +1,15 @@
-import React from 'react';
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import React from "react";
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
-      color: '#fff',
+      color: "#fff",
     },
-  }),
+  })
 );
 
 export default function SimpleBackdrop() {
@@ -18,7 +18,6 @@ export default function SimpleBackdrop() {
   const handleClose = () => {
     setOpen(false);
   };
-  
 
   return (
     <div>

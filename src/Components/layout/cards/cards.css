@@ -1,9 +1,8 @@
-.MuiTypography-h5{
-    font-size: .75rem !important;
+.MuiTypography-h5 {
+    font-size: 0.75rem !important;
     color: red !important;
-};
+}
 
-FavoriteIcon{
-color: red !important;
-};
-
+FavoriteIcon {
+    color: red !important;
+}

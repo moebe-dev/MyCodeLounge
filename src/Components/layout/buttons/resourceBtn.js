@@ -1,17 +1,23 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import "./resouceBtn.css"
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import "./resouceBtn.css";
 
-const options = ['Pixabay', 'HTML Cheat Sheets', 'CSS Cheat Sheets', 'JQuery Cheat Sheets', 'JavaScript Cheat Sheets'];
+const options = [
+  "Pixabay",
+  "HTML Cheat Sheets",
+  "CSS Cheat Sheets",
+  "JQuery Cheat Sheets",
+  "JavaScript Cheat Sheets",
+];
 
 export default function SplitButton() {
   const [open, setOpen] = React.useState(false);
@@ -40,16 +46,22 @@ export default function SplitButton() {
   };
 
   return (
-    
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
-        <ButtonGroup  variant="contained"  ref={anchorRef} aria-label="split button">
-          <Button className= "ResourcesBtn" onClick={handleClick}>Resources</Button>
-          <Button className= "ResourcesBtn2" 
+        <ButtonGroup
+          variant="contained"
+          ref={anchorRef}
+          aria-label="split button"
+        >
+          <Button className="ResourcesBtn" onClick={handleClick}>
+            Resources
+          </Button>
+          <Button
+            className="ResourcesBtn2"
             // color="primary"
             size="large"
-            aria-controls={open ? 'split-button-menu' : undefined}
-            aria-expanded={open ? 'true' : undefined}
+            aria-controls={open ? "split-button-menu" : undefined}
+            aria-expanded={open ? "true" : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
             onClick={handleToggle}
@@ -57,12 +69,19 @@ export default function SplitButton() {
             <ArrowDropDownIcon />
           </Button>
         </ButtonGroup>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        <Popper
+          open={open}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          transition
+          disablePortal
+        >
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               style={{
-                transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
+                transformOrigin:
+                  placement === "bottom" ? "center top" : "center bottom",
               }}
             >
               <Paper>
@@ -74,11 +93,21 @@ export default function SplitButton() {
                         selected={index === selectedIndex}
                         onClick={(event) => handleMenuItemClick(event, index)}
                       >
-                        <Button href= {option === "Pixabay" ? "https://pixabay.com":
-                        option === "HTML Cheat Sheets" ? "https://htmlcheatsheet.com/":
-                        option === "CSS Cheat Sheets" ? "https://htmlcheatsheet.com/css/":
-                        option === "JQuery Cheat Sheets" ? "https://htmlcheatsheet.com/jquery/":
-                      "https://htmlcheatsheet.com/js/"}>{option}</Button>
+                        <Button
+                          href={
+                            option === "Pixabay"
+                              ? "https://pixabay.com"
+                              : option === "HTML Cheat Sheets"
+                                ? "https://htmlcheatsheet.com/"
+                                : option === "CSS Cheat Sheets"
+                                  ? "https://htmlcheatsheet.com/css/"
+                                  : option === "JQuery Cheat Sheets"
+                                    ? "https://htmlcheatsheet.com/jquery/"
+                                    : "https://htmlcheatsheet.com/js/"
+                          }
+                        >
+                          {option}
+                        </Button>
                       </MenuItem>
                     ))}
                   </MenuList>
@@ -89,6 +118,5 @@ export default function SplitButton() {
         </Popper>
       </Grid>
     </Grid>
-    
   );
 }

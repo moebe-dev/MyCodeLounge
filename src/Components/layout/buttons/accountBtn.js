@@ -1,7 +1,7 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import { useAuth0 } from "../../../react-auth0-spa";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -9,20 +9,18 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "#01b4bc",
     color: "#ffffff",
-    margin: 10, 
+    margin: 10,
     padding: 10,
     fontSize: "1.4rem",
-    borderRadius: 5
-  }
-})
-
-
+    borderRadius: 5,
+  },
+});
 
 export default function SimpleMenu() {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const {logout} = useAuth0();
+  const { logout } = useAuth0();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -33,9 +31,13 @@ export default function SimpleMenu() {
   };
 
   return (
-  
     <div>
-      <Button className={classes.root} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} >
+      <Button
+        className={classes.root}
+        aria-controls="simple-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
         Account
       </Button>
       <Menu
@@ -47,7 +49,6 @@ export default function SimpleMenu() {
       >
         <MenuItem onClick={""}>My Favorites</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
-        <MenuItem onClick={""}>Contact Us</MenuItem>
       </Menu>
     </div>
   );
