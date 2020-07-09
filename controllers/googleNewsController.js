@@ -11,7 +11,7 @@ module.exports = {
     const searchTopic = req.query.topic ? req.query.topic.replace(/\s/, "%20") : "full stack development";
     newsapi.v2.everything({
       q: searchTopic,
-      from: '2020-06-08',
+      from: '2020-06-20',
       language: 'en',
       sortBy: 'relevancy',
       pageSize: '100'

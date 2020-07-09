@@ -53,7 +53,7 @@ export default function Switches(props) {
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
       </div>
-      <br />
+      {/* <br />
       <div className='W3' style= {{display: 'flex', justifyContent: 'flex-end'}}>W3 Schools
       <Switch
         checked={state.checkedD}
@@ -61,7 +61,7 @@ export default function Switches(props) {
         name="checkedD"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />
-      </div>
+      </div> */}
       <br />
       <div className='SO' style= {{display: 'flex', justifyContent: 'flex-end'}}>Stack Overflow
       <Switch
