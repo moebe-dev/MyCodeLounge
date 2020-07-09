@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Router, Route, Switch } from "react-router-dom";
 import MainPage from "./Pages/mainPage";
 import { useAuth0 } from "./react-auth0-spa";
-import Loading from "./Components/layout/Loading"
+import Loading from "./components/layout/Loading"
 import history from "./utils/history";
 import Intro from "./Pages/IntroPage"
-import ButtonAppBar from "./Components/layout/navbar/NavBar"
+import ButtonAppBar from "./components/layout/navbar/NavBar"
 import API from "./utils/API";
 import "./App.css"
 import { StylesProvider } from "@material-ui/core/styles";
