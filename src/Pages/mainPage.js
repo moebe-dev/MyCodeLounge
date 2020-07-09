@@ -30,7 +30,7 @@ export default function Main(props) {
         </div>
         <container>
         <br />
-        {state.checkedA ?<div style={{color: 'white',fontSize: '20px'}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
+        {state.checkedA ?<div style={{color: '#f6a2ab',fontSize: '20px', margin: 20}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length !== 0 && props.videos.map((video, index) =>(
             <Card 
               index={index}
@@ -45,7 +45,7 @@ export default function Main(props) {
             </Card>))}
           </div> <br /></div>: <div></div> }
         
-        {state.checkedB ? <div style={{color: 'white',fontSize: '20px'}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedB ? <div style={{color: '#f6a2ab',fontSize: '20px', margin: 20}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.books.length !== 0 && props.books.map((books, index)=>(
             <Card 
               index={index}
@@ -60,7 +60,7 @@ export default function Main(props) {
             </Card>))}
           </div><br /> </div>: <div></div> }
         
-        {state.checkedC ? <div style={{color: 'white',fontSize: '20px'}}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedC ? <div style={{color: '#f6a2ab',fontSize: '20px' }}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
             {props.courses.length !== 0 && props.courses.map((courses, index) =>(
             <Card 
               index={index}

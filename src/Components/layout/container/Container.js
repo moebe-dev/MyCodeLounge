@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     header: {
       background: "linear-gradient(45deg, #494947 5%, #151514 90%)",
-      fontSize: "4rem",
+      fontSize: "2rem",
       fontWeight: 100,
       color: "#f6a2ab",
       textAlign: "center",
@@ -29,15 +29,19 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#f6a2ab",
       fontSize: "3rem",
       margin: 10,
-      
+      fontWeight: 100,
     },
     subtitle: {
       textAlign: "center",
       color: "#ffffff",
       margin: 40,
       padding: 20,
-      fontSize: 20,
-      
+      fontSize: 30,
+      fontWeight: 400,
+
+      textShadow: " 5px 2px #494947",
+
+
     },
   })
 );

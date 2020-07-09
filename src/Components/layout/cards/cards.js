@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight:450,
     width: 220,
     marginLeft: 15,
+    background: "linear-gradient(45deg, #494947 5%, #151514 90%)",
     // minHeight: "265px",
     display: "flex",
     flexDirection: "column",
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title:{
     height: '25%',
-    color: "red",
+    color: "#ffffff",
     fontSize: '.85rem',
     textDecoration: "none",
     

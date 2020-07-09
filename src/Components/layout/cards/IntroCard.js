@@ -37,7 +37,7 @@ const CardBoxes = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
-    <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+    <Grid item xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
         <Card className={classes.Card} >
         <CardActionArea >
           <CardMedia
@@ -61,7 +61,7 @@ const CardBoxes = () => {
         </CardActionArea>
       </Card>
       </Grid>
-      <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+      <Grid item xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
       <Card className={classes.Card}>
         <CardActionArea>
           <CardMedia
@@ -86,7 +86,7 @@ const CardBoxes = () => {
         </CardActionArea>
       </Card>
       </Grid>
-      <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+      <Grid item xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
       <Card className={classes.Card}>
         <CardActionArea>
           <CardMedia
@@ -110,7 +110,7 @@ const CardBoxes = () => {
         </CardActionArea>
         </Card>
         </Grid>
-        <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+        <Grid item xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
     <Card className={classes.Card} >
     <CardActionArea>
       <CardMedia
@@ -134,7 +134,7 @@ const CardBoxes = () => {
     </CardActionArea>
     </Card>
     </Grid>
-    <Grid item xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+    <Grid item xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
     <Card className={classes.Card}>
     <CardActionArea>
       <CardMedia
@@ -158,7 +158,7 @@ const CardBoxes = () => {
     </CardActionArea>
     </Card>
     </Grid>
-    <Grid item  xl={2} lg={4} md={6} sm={8} xs={12} spacing={3}>
+    <Grid item  xl={2} lg={4} md={4} sm={6} xs={12} spacing={3}>
     <Card className={classes.Card}>
     <CardActionArea>
       <CardMedia
