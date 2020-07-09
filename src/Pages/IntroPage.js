@@ -9,7 +9,6 @@ export default function Intro() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* <LoginButton /> */}
       <ButtonAppBar />
       <SimpleContainer />
       <CardBoxes />
