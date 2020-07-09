@@ -58,7 +58,8 @@ const classes = useStyles();
             <h2>{props.item.title}</h2>
             <p>{props.item.description}</p>
             <img src={props.item.image} alt={props.item.title} height="50px" width="50px"></img>
-            <p>{props.item.link}</p>
+            <br></br>
+            <a href= {props.item.link}>Click here for more info</a>
         </Paper>
         </div>
     )
