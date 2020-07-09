@@ -104,7 +104,7 @@ export default function LoginButton(props) {
               }}
             >
               <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
+                <ClickAwayListener onClickAway={""}>
                   <MenuList id="split-button-menu">
                     {options.map((option, index) => (
                       <MenuItem
