@@ -1,10 +1,10 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import SvgIcon from '@material-ui/core/SvgIcon';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > svg': {
+    "& > svg": {
       margin: theme.spacing(2),
     },
   },
@@ -23,9 +23,10 @@ export default function SvgIconsSize() {
 
   return (
     <div className={classes.root}>
-      <HomeIcon style={{ fontSize: 40 }}/> 
-      <p style= {{ fontSize: 30, color:'#FF6347', }}><h2>My Code Lounge</h2></p>
-    
+      <HomeIcon style={{ fontSize: 40 }} />
+      <p style={{ fontSize: 30, color: "#FF6347" }}>
+        <h2>myCodeLounge</h2>
+      </p>
     </div>
   );
 }

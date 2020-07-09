@@ -1,4 +1,7 @@
-.MuiCardMedia-root{
+.MuiCardMedia-root {
     background-size: contain !important;
 }
 
+.filterButton {
+    color: #FFFFFF;
+}

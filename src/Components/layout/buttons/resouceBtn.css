@@ -1,0 +1,13 @@
+.ResourcesBtn {
+    background: linear-gradient(45deg, #9d8df1 5%, #01b5bd 90%);
+    border: 1px solid #ffffff;
+    border-radius: 5;
+    color: #ffffff;
+}
+
+.ResourcesBtn2 {
+    background: linear-gradient(45deg, #01b5bd 5%, #9d8df1 90%);
+    border: 1px solid #ffffff;
+    border-radius: 5;
+    color: #ffffff;
+}

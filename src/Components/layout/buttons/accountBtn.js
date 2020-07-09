@@ -1,22 +1,43 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { useAuth0 } from "../../../react-auth0-spa";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "#01b4bc",
+    color: "#ffffff",
+    margin: 10,
+    padding: 10,
+    fontSize: "1.4rem",
+    borderRadius: 5,
+  },
+});
 
 export default function SimpleMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const { logout } = useAuth0();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    logout();
   };
 
   return (
     <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} style={{backgroundColor: '#E0F0F0', height:30, marginLeft:10}}>
+      <Button
+        className={classes.root}
+        aria-controls="simple-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
         Account
       </Button>
       <Menu
@@ -26,9 +47,8 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>My Favorites</MenuItem>
+        <MenuItem onClick={""}>My Favorites</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
-        <MenuItem onClick={handleClose}>Contact Us</MenuItem>
       </Menu>
     </div>
   );
