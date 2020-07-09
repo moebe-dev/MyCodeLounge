@@ -30,7 +30,7 @@ export default function Main(props) {
         </div>
         <container>
         <br />
-        {state.checkedA ?<div style={{color: '#f6a2ab',fontSize: '20px', margin: 20}}>YouTube <div style={{ display: "flex",justifyContent: "space-between",flexDirection:"row", flexWrap:"wrap"}}>
+        {state.checkedA ?<div style={{color: '#f6a2ab',fontSize: '20px', margin: 20, textAlign: 'center'}}>YouTube <div style={{ display: "flex",justifyContent: "spaceBetween",flexDirection:"row", flexWrap:"wrap"}}>
             {props.videos.length !== 0 && props.videos.map((video, index) =>(
             <Card 
               index={index}
@@ -45,7 +45,7 @@ export default function Main(props) {
             </Card>))}
           </div> <br /></div>: <div></div> }
         
-        {state.checkedB ? <div style={{color: '#f6a2ab',fontSize: '20px', margin: 20}}>Google Books<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedB ? <div style={{color: '#f6a2ab',fontSize: '20px', margin: 20, textAlign: 'center'}}>Google Books<div style={{ display: "flex", justifyContent: "spaceBetween", flexDirection:"row" }}>
             {props.books.length !== 0 && props.books.map((books, index)=>(
             <Card 
               index={index}
@@ -60,7 +60,7 @@ export default function Main(props) {
             </Card>))}
           </div><br /> </div>: <div></div> }
         
-        {state.checkedC ? <div style={{color: '#f6a2ab',fontSize: '20px' }}>Udemy<div style={{ display: "flex", justifyContent: "space-between", flexDirection:"row" }}>
+        {state.checkedC ? <div style={{color: '#f6a2ab',fontSize: '20px', margin: 20, textAlign: 'center' }}>Udemy<div style={{ display: "flex", justifyContent: "spaceBetween", flexDirection:"row" }}>
             {props.courses.length !== 0 && props.courses.map((courses, index) =>(
             <Card 
               index={index}
@@ -74,8 +74,8 @@ export default function Main(props) {
               handleAddOrRemove={props.handleAddOrRemove}>
             </Card>))}
           </div><br /></div> : <div></div> }
-        {state.checkedE ?<div>{props.answers.length !== 0 ? <div style={{color: 'white',fontSize: '20px'}}> StackOverflow</div>:<div hidden></div> } 
-          <div style={{ display: "flex", justifyContent: "space-evenly", flexDirection:"row" }}>
+        {state.checkedE ?<div>{props.answers.length !== 0 ? <div style={{color: '#F6A2AB',fontSize: '20px', marginLeft: 20, textAlign: 'center'}}> StackOverflow</div>:<div hidden></div> } 
+          <div style={{ display: "flex", justifyContent: "spaceBetween", flexDirection:"row", marginLeft:20 }}>
             
             {props.answers.length !== 0 && props.answers.map((answers, index) =>( 
             <Card 
