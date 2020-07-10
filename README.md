@@ -1,4 +1,4 @@
-## MyCodeLounge
+## myCodeLounge
 From a simple YouTube video to a full course from some of the most popular websites online! Developed by Bootcamp grads, these resources helped us get through our class and still have plenty of resources to keep learning.
 
 
@@ -13,43 +13,36 @@ Download the "images" folder to visualize each command given. This will allow yo
 
 
 ## DEMO:
-“Being busy does not equal making progress.” 
-- The Founders
-
 ![Screen shot](/images/Demo.gif)
 
 
-## Back-End:
-`Coming Soon!`
-
-
 ## Technologies & Concepts Used:
-* Front-End Technologies:
-- HTML5
-- CSS3
-- React.js
-- Material-UI
+# Front-End Technologies:
+* HTML5
+* CSS3
+* React.js
+* Material-UI
 
-* Back-End Technologies:
-- Javascript ES6
-- Node.js/ NPM
-- Express.js
-- Axios
-- MongoDB/ Mongoose
-- Git/ Git Flow
-- External API Calls (Youtube, GoogleBooks, Google-News, Udemy, StackOverflow)
-- Internal API Calls
+# Back-End Technologies:
+* Javascript ES6
+* Node.js/ NPM
+* Express.js
+* Axios
+* MongoDB/ Mongoose
+* Git/ Git Flow
+* External API Calls (Youtube, GoogleBooks, Google-News, Udemy, StackOverflow)
+* Internal API Calls
 
-* Authentication:
-- Auth0
+# Authentication:
+* Auth0
 
-* Deployment Technologies:
-- AWS
-- Heroku - Code Pipelines
+# Deployment Technologies:
+* AWS
+* Heroku - Code Pipelines
 
-* QA Tools:
-- Chrome Dev Tools
-- ESLint - Prettier
+# QA Tools:
+* Chrome Dev Tools
+* ESLint - Prettier
 
 
 # Project - MyCodeLounge: Made by Lindsey, Muhammad, Justin, & Scott.
